@@ -1,14 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import "@fontsource/roboto/300.css"
+import "@fontsource/roboto/400.css"
+import "@fontsource/roboto/500.css"
+import "@fontsource/roboto/700.css"
+import "@fontsource/roboto/900.css"
+import "@fontsource/roboto-mono/400.css"
+import "@fontsource/roboto-mono/700.css"
 import "./globals.css"
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-  variable: "--font-sans",
-})
 
 export const metadata: Metadata = {
   title: "Ilaz Gashi - Full-Stack Developer",
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased" style={{ fontFamily: '"Roboto", "Roboto Mono", sans-serif' }}>
         {children}
         <Analytics />
       </body>

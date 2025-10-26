@@ -1,16 +1,18 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Home, Briefcase, Code2, Mail, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ProjectModal } from "@/components/project-modal"
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 100)
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
@@ -26,57 +28,56 @@ export function Navigation() {
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
-        }`}
-      >
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4 transition-all duration-300">
+        <div className={`${isScrolled ? "bg-card rounded-full shadow-2xl border border-border" : "bg-transparent rounded-none shadow-none border-none"} px-6 lg:px-8 py-4 transition-all duration-300`}>
+          <div className="flex items-center justify-between">
             <button
               onClick={() => scrollToSection("hero")}
-              className="font-mono text-lg lg:text-xl font-bold text-accent hover:text-accent/80 transition-colors"
+              className="text-lg lg:text-xl font-bold text-foreground hover:text-accent transition-colors tracking-tight"
             >
-              {"<IG />"}
+              {"<IG/>"}
             </button>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
               <button
                 onClick={() => scrollToSection("hero")}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
               >
-                <Home className="w-4 h-4" />
-                <span>Home</span>
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
+              >
+                About
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
               >
-                <Code2 className="w-4 h-4" />
-                <span>Projects</span>
-              </button>
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Briefcase className="w-4 h-4" />
-                <span>Experience</span>
+                Works
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
               >
-                <Mail className="w-4 h-4" />
-                <span>Contact</span>
+                Contact
               </button>
+              <Button
+                size="sm"
+                onClick={() => setIsModalOpen(true)}
+                className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-6"
+              >
+                Start a Project
+              </Button>
             </div>
 
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden text-foreground"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -91,35 +92,37 @@ export function Navigation() {
           <div className="flex flex-col items-center justify-center h-full gap-8">
             <button
               onClick={() => scrollToSection("hero")}
-              className="flex items-center gap-3 text-2xl text-muted-foreground hover:text-foreground transition-colors"
+              className="text-2xl text-foreground hover:text-accent transition-colors"
             >
-              <Home className="w-6 h-6" />
-              <span>Home</span>
+              Home
+            </button>
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-2xl text-foreground hover:text-accent transition-colors"
+            >
+              About
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className="flex items-center gap-3 text-2xl text-muted-foreground hover:text-foreground transition-colors"
+              className="text-2xl text-foreground hover:text-accent transition-colors"
             >
-              <Code2 className="w-6 h-6" />
-              <span>Projects</span>
-            </button>
-            <button
-              onClick={() => scrollToSection("experience")}
-              className="flex items-center gap-3 text-2xl text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <Briefcase className="w-6 h-6" />
-              <span>Experience</span>
+              Works
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="flex items-center gap-3 text-2xl text-muted-foreground hover:text-foreground transition-colors"
+              className="text-2xl text-foreground hover:text-accent transition-colors"
             >
-              <Mail className="w-6 h-6" />
-              <span>Contact</span>
+              Contact
             </button>
           </div>
         </div>
       )}
+
+      {/* Project Modal */}
+      <ProjectModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </>
   )
 }
