@@ -28,8 +28,8 @@ const projects = [
     title: "Weather Dashboard",
     description: "Beautiful weather application with location-based forecasts and interactive data visualizations.",
     tags: ["React", "TypeScript", "Tailwind CSS", "API"],
-    github: "https://github.com/iligashi/Task-Manager.git",
-    demo: "https://github.com/iligashi/Task-Manager.git",
+    github: "https://github.com/iligashi/WeatherDashboard.git",
+    demo: "https://weatherdashboard-navy.vercel.app/",
     image: "/weather-dashboard-interface.png",
   },
   {
