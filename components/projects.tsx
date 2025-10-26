@@ -12,24 +12,24 @@ const projects = [
     description:
       "Full-stack e-commerce solution with payment integration, product management, and user authentication.",
     tags: ["Next.js", "TypeScript", "MongoDB", "Stripe"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/iligashi/realestate",
+    demo: "https://github.com/iligashi/realestate",
     image: "/modern-ecommerce-dashboard.png",
   },
   {
     title: "Task Management App",
     description: "Collaborative task management application with real-time updates and team collaboration features.",
-    tags: ["React", "Node.js", "Socket.io", "PostgreSQL"],
-    github: "#",
-    demo: "#",
+    tags: ["React", "Node.js", "Socket.io", "MongoDB"],
+    github: "https://github.com/iligashi/Task-Manager.git",
+    demo: "https://github.com/iligashi/Task-Manager.git",
     image: "/task-management-kanban.png",
   },
   {
     title: "Weather Dashboard",
     description: "Beautiful weather application with location-based forecasts and interactive data visualizations.",
     tags: ["React", "TypeScript", "Tailwind CSS", "API"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/iligashi/Task-Manager.git",
+    demo: "https://github.com/iligashi/Task-Manager.git",
     image: "/weather-dashboard-interface.png",
   },
   {
@@ -56,6 +56,31 @@ const projects = [
     demo: "#",
     image: "/fitness-tracker-mobile-app.jpg",
   },
+  {
+    title: "Portfolio ",
+    description: "A modern, responsive portfolio built by Ilaz Gashi, showcasing expertise in full-stack web development using React, Next.js, TypeScript, and MongoDB. Designed with clean UI/UX principles",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS",],
+    github: "https://github.com/iligashi/ilazgashiportfolio.git",
+    demo: "https://ilazgashi.vercel.app/",
+    image: "/portfolio.png",
+  },
+  {
+    title: "Poliklinika Website",
+    description: "Book appointments, explore medical services, and connect with trusted doctors at Poliklinikaa",
+    tags: ["React.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+    github: "https://github.com/iligashi/Poliklinika.git",
+    demo: "https://poliklinikaa.netlify.app/ ",
+    image: "/poliklinika.png",
+  },
+  {
+    title: "Programuesi i Veturave",
+    description: "Programuesi i Veturave program your car with our advanced vehicle programming services. From diagnostics to customizations, we enhance your driving experience.",
+    tags: ["React.js", "TypeScript", "Tailwind CSS", ],
+    github: "https://github.com/iligashi/Programusi-i-Veturave-.git",
+    demo: "https://programuesiiveturave.netlify.app/ ",
+    image: "/programuesi.png",
+  },
+  
 ]
 
 export function Projects() {
