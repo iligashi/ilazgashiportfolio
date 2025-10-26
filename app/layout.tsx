@@ -14,7 +14,9 @@ export const metadata: Metadata = {
   title: "Ilaz Gashi - Full-Stack Developer",
   description:
     "Portfolio of Ilaz Gashi - Junior General Tech Engineer specializing in React, TypeScript, Next.js, and modern web development",
-
+  icons: {
+    icon: "/fav.png",
+  },
 }
 
 export default function RootLayout({
