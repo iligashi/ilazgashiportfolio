@@ -44,8 +44,8 @@ const projects = [
     title: "Portfolio CMS",
     description: "Content management system for portfolio websites with drag-and-drop interface.",
     tags: ["React", "Node.js", "Express", "MySQL"],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/iligashi/Portfolio-CMS.git",
+    demo: "https://github.com/iligashi/Portfolio-CMS.git",
     image: "/cms-content-editor.png",
   },
   {
