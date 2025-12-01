@@ -45,7 +45,7 @@ const projects = [
     description: "Content management system for portfolio websites with drag-and-drop interface.",
     tags: ["React", "Node.js", "Express", "MySQL"],
     github: "https://github.com/iligashi/Portfolio-CMS.git",
-    demo: "https://v0-portfolio-cms-mauve.vercel.app/",
+    demo: "portfoliocms-ili.vercel.app",
     image: "/cms-content-editor.png",
   },
   {
