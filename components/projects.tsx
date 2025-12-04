@@ -80,6 +80,14 @@ const projects = [
     demo: "https://programuesiiveturave.netlify.app/ ",
     image: "/programuesi.png",
   },
+  {
+    title: "Fluks Dekor ",
+    description: "Flux Dekor is a sleek furniture showcase/shop where you browse curated home pieces by category and filters, with easy contact to buy.",
+    tags: ["React.js", "TypeScript", "Tailwind CSS", ],
+    github: "https://github.com/iligashi/MoblieriaDardania",
+    demo: "https://flux-dekor.com/ ",
+    image: "/flux-dekor.png",
+  },
   
 ]
 
