@@ -33,30 +33,6 @@ const projects = [
     image: "/weather-dashboard-interface.png",
   },
   {
-    title: "Social Media Analytics",
-    description: "Analytics dashboard for tracking social media metrics with real-time data visualization.",
-    tags: ["Next.js", "Chart.js", "MongoDB", "REST API"],
-    github: "#",
-    demo: "#",
-    image: "/analytics-dashboard-charts.png",
-  },
-  {
-    title: "Portfolio CMS",
-    description: "Content management system for portfolio websites with drag-and-drop interface.",
-    tags: ["React", "Node.js", "Express", "MySQL"],
-    github: "https://github.com/iligashi/Portfolio-CMS.git",
-    demo: "portfoliocms-ili.vercel.app",
-    image: "/cms-content-editor.png",
-  },
-  {
-    title: "Fitness Tracker",
-    description: "Mobile-responsive fitness tracking app with workout plans and progress monitoring.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
-    github: "#",
-    demo: "#",
-    image: "/fitness-tracker-mobile-app.jpg",
-  },
-  {
     title: "Portfolio ",
     description: "A modern, responsive portfolio built by Ilaz Gashi, showcasing expertise in full-stack web development using React, Next.js, TypeScript, and MongoDB. Designed with clean UI/UX principles",
     tags: ["Next.js", "TypeScript", "Tailwind CSS",],
@@ -81,14 +57,29 @@ const projects = [
     image: "/programuesi.png",
   },
   {
-    title: "Fluks Dekor ",
-    description: "Flux Dekor is a sleek furniture showcase/shop where you browse curated home pieces by category and filters, with easy contact to buy.",
-    tags: ["React.js", "Node/Esspres.js", "Tailwind CSS", "PostgreSQL" , "Godaddy" ],
+    title: "Fluks Dekor",
+    description: "A full-stack e-commerce platform selling furniture, decorations, and tools across Kosovo. Features product management with an admin panel, shopping cart, wishlist, order tracking, sale/new/best-seller sections, and fast 24-48h delivery.",
+    tags: ["React.js", "Node/Express.js", "Tailwind CSS", "PostgreSQL", "Godaddy"],
     github: "https://github.com/iligashi/MoblieriaDardania",
-    demo: "https://flux-dekor.com/ ",
-    image: "/flux-dekor.png",
+    demo: "https://flux-dekor.com/",
+    image: "/dlux.png",
   },
-  
+  {
+    title: "Nobel Venues",
+    description: "A sleek landing page for Nobel Venues, a luxury event hosting company. Showcasing elegant venue spaces, event services, and a refined user experience designed to attract premium clientele.",
+    tags: ["React.js", "Tailwind CSS"],
+    github: "#",
+    demo: "https://nobelvenues.netlify.app/",
+    image: "/nobel.png",
+  },
+  {
+    title: "74 Lounge Bar",
+    description: "A full-stack system for 74 Lounge Bar featuring an online ordering system, real-time messaging, table reservation, and a comprehensive admin panel to manage all operations seamlessly.",
+    tags: ["Next.js", "Node/Express.js", "SQL", "Railway"],
+    github: "#",
+    demo: "https://74loungebar.netlify.app/",
+    image: "/74.png",
+  },
 ]
 
 export function Projects() {
