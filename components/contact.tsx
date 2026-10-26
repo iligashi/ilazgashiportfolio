@@ -133,8 +133,7 @@ export function Contact() {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground text-sm">
-                Prishtine, Rruga C<br />
-                Kosovo
+                Prishtina, Kosovo
               </p>
             </CardContent>
           </Card>

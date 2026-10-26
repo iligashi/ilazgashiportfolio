@@ -51,7 +51,7 @@ export function About() {
               </h3>
               <div className="w-16 h-1 bg-accent mb-6 rounded-full group-hover:w-24 transition-all duration-300" />
               <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-                I'm Ilaz Gashi, a passionate Junior General Tech Engineer transitioning into full-stack web development. I specialize in building clean, efficient, and responsive web applications using modern technologies like React, Next.js, TypeScript, and Node.js. With a strong foundation in both frontend and backend development, I strive to turn complex ideas into seamless digital experiences that users love.
+                I'm a Junior General Tech Engineer at Digital School and a full-stack developer focused on responsive web applications. I work mainly with React, Next.js, TypeScript, and Node.js. My background combines hands-on technical support with practical software projects, including client websites and database-backed applications.
               </p>
             </div>
 
