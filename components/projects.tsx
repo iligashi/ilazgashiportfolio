@@ -8,20 +8,20 @@ import { ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Real Estate Marketplace",
     description:
-      "Full-stack e-commerce solution with payment integration, product management, and user authentication.",
-    tags: ["Next.js", "TypeScript", "MongoDB", "Stripe"],
+      "Full-stack property marketplace with role-based accounts, property listings, search, and real-time messaging.",
+    tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
     github: "https://github.com/iligashi/realestate",
-    demo: "https://github.com/iligashi/realestate",
+    demo: "",
     image: "/modern-ecommerce-dashboard.png",
   },
   {
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates and team collaboration features.",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB"],
+    title: "Task Manager",
+    description: "Collaborative task manager with team workspaces, Kanban boards, tasks, comments, and file attachments.",
+    tags: ["Next.js", "TypeScript", "MongoDB"],
     github: "https://github.com/iligashi/Task-Manager.git",
-    demo: "https://github.com/iligashi/Task-Manager.git",
+    demo: "",
     image: "/task-management-kanban.png",
   },
   {
@@ -33,27 +33,19 @@ const projects = [
     image: "/weather-dashboard-interface.png",
   },
   {
-    title: "Portfolio ",
-    description: "A modern, responsive portfolio built by Ilaz Gashi, showcasing expertise in full-stack web development using React, Next.js, TypeScript, and MongoDB. Designed with clean UI/UX principles",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS",],
-    github: "https://github.com/iligashi/ilazgashiportfolio.git",
-    demo: "https://ilazgashi.vercel.app/",
-    image: "/portfolio.png",
-  },
-  {
     title: "Poliklinika Website",
     description: "Book appointments, explore medical services, and connect with trusted doctors at Poliklinikaa",
-    tags: ["React.js", "TypeScript", "Tailwind CSS", "MongoDB"],
+    tags: ["React", "Tailwind CSS", "React Router"],
     github: "https://github.com/iligashi/Poliklinika.git",
-    demo: "https://poliklinikaa.netlify.app/ ",
+    demo: "https://poliklinikaa.netlify.app/",
     image: "/poliklinika.png",
   },
   {
     title: "Programuesi i Veturave",
-    description: "Programuesi i Veturave program your car with our advanced vehicle programming services. From diagnostics to customizations, we enhance your driving experience.",
+    description: "A responsive site for Programuesi i Veturave, a vehicle programming and customization service.",
     tags: ["React.js", "TypeScript", "Tailwind CSS", ],
     github: "https://github.com/iligashi/Programusi-i-Veturave-.git",
-    demo: "https://programuesiiveturave.netlify.app/ ",
+    demo: "https://programuesiiveturave.netlify.app/",
     image: "/programuesi.png",
   },
   {
@@ -68,7 +60,7 @@ const projects = [
     title: "Nobel Venues",
     description: "A sleek landing page for Nobel Venues, a luxury event hosting company. Showcasing elegant venue spaces, event services, and a refined user experience designed to attract premium clientele.",
     tags: ["React.js", "Tailwind CSS"],
-    github: "#",
+    github: "https://github.com/iligashi/Nobel",
     demo: "https://nobelvenues.netlify.app/",
     image: "/nobel.png",
   },
@@ -76,7 +68,7 @@ const projects = [
     title: "74 Lounge Bar",
     description: "A full-stack system for 74 Lounge Bar featuring an online ordering system, real-time messaging, table reservation, and a comprehensive admin panel to manage all operations seamlessly.",
     tags: ["Next.js", "Node/Express.js", "SQL", "Railway"],
-    github: "#",
+    github: "https://github.com/iligashi/74-lounge-bar",
     demo: "https://74loungebar.netlify.app/",
     image: "/74.png",
   },
@@ -169,27 +161,31 @@ export function Projects() {
                   ))}
                 </div>
                 <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="flex-1 border-accent/50 hover:bg-accent hover:text-accent-foreground bg-transparent transition-all duration-300 hover:scale-105"
-                    asChild
-                  >
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </a>
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="flex-1 bg-accent hover:bg-accent/90 transition-all duration-300 hover:scale-105"
-                    asChild
-                  >
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </a>
-                  </Button>
+                  {project.github && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className={`border-accent/50 hover:bg-accent hover:text-accent-foreground bg-transparent transition-all duration-300 hover:scale-105 ${project.demo ? "flex-1" : "w-full"}`}
+                      asChild
+                    >
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4 mr-2" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
+                  {project.demo && (
+                    <Button
+                      size="sm"
+                      className={`bg-accent hover:bg-accent/90 transition-all duration-300 hover:scale-105 ${project.github ? "flex-1" : "w-full"}`}
+                      asChild
+                    >
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Demo
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
