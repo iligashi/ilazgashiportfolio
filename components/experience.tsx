@@ -12,9 +12,8 @@ const experiences = [
     period: "November 2024 - Present",
     description: [
       "Maintain and optimize classroom technology infrastructure including computers, networks, and digital learning platforms",
-      "Support educators and students with technical issues and troubleshoot software problems",
-      "Collaborate on implementing new tech solutions to improve the learning experience",
-      "Manage basic IT administrative tasks and ensure smooth operation of digital tools",
+      "Troubleshoot software and device issues with educators and students, turning technical problems into clear next steps",
+      "Support the rollout of digital tools and handle IT operations that keep classes moving",
     ],
   },
 ]
@@ -27,10 +26,9 @@ const education = [
     location: "Prishtine",
     period: "October 2022 - June 2025",
     description: [
-      "Studied core areas including programming, algorithms, data structures, databases, and software engineering",
-      "Gained hands-on experience through practical labs, group projects, and real-world applications",
-      "Worked with modern technologies such as Java, Python, and web development tools",
-      "Completed capstone project focused on solving real-world problems using software engineering principles",
+      "Coursework across programming, algorithms, data structures, databases, and software engineering",
+      "Applied those foundations in practical labs and group projects, including a capstone focused on a real-world problem",
+      "Worked with Java, Python, and web development technologies",
     ],
   },
 ]
@@ -49,7 +47,7 @@ export function Experience() {
             Experience & <span className="text-accent">Education</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            My professional journey and academic background in technology
+            Software projects, hands-on technical support, and a computer science foundation.
           </p>
         </div>
 

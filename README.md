@@ -12,9 +12,9 @@ Any changes you make to your deployed app will be automatically pushed to this r
 
 ## Portfolio
 
-The site presents selected product work, with filters for project type and dedicated case studies for Fluks Dekor,
-Task Manager, and the Real Estate Marketplace. Case studies describe the project scope and product decisions without
-inventing performance metrics.
+The site leads with three selected case studies—Fluks Dekor, Task Manager, and the Real Estate Marketplace—with
+additional projects available on demand and filters by project type. Case studies describe the project scope and
+product decisions without inventing performance metrics.
 
 ## Run locally
 

@@ -12,6 +12,8 @@ export interface Project {
   featured?: boolean
   caseStudy?: {
     context: string
+    cardChallenge: string
+    cardContribution: string
     scope: string[]
     decisions: string[]
     outcomeTitle: string
@@ -35,6 +37,8 @@ export const projects: Project[] = [
     caseStudy: {
       context:
         "A growing catalog needs to make browsing and buying straightforward for customers, while giving the business a practical way to keep products and orders up to date.",
+      cardChallenge: "Customers need an easy route from a large product catalog to an order.",
+      cardContribution: "Built the storefront and the supporting product, cart, wishlist, and order-management flows.",
       scope: [
         "Built a full-stack commerce experience for furniture, decorations, and tools.",
         "Implemented product management, shopping cart, wishlist, and order tracking.",
@@ -63,6 +67,8 @@ export const projects: Project[] = [
     caseStudy: {
       context:
         "Team work gets fragmented when planning, progress updates, and project conversations live in separate places.",
+      cardChallenge: "Tasks, status updates, and team discussion often lose their shared context.",
+      cardContribution: "Built shared workspaces, Kanban boards, task details, comments, and attachments.",
       scope: [
         "Created shared workspaces and Kanban boards for organizing team work.",
         "Added task details, comments, and file attachments to keep context alongside the work.",
@@ -90,6 +96,8 @@ export const projects: Project[] = [
     caseStudy: {
       context:
         "Property seekers need to find relevant listings and contact the right people without losing the conversation in a disconnected workflow.",
+      cardChallenge: "Finding a relevant property and starting a conversation should feel like one connected journey.",
+      cardContribution: "Built searchable listings, role-based accounts, and real-time messaging.",
       scope: [
         "Built property listings and search for browsing available homes.",
         "Added role-based accounts for distinct user permissions.",

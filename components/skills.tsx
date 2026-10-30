@@ -1,4 +1,4 @@
-import { Code2, Database, Wrench, Users } from "lucide-react"
+import { Code2, Database, Wrench } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const skillCategories = [
@@ -17,11 +17,6 @@ const skillCategories = [
     title: "Tools & Technologies",
     skills: ["Git", "GitHub", "VS Code", "npm", "Webpack", "Responsive Design"],
   },
-  {
-    icon: Users,
-    title: "Soft Skills",
-    skills: ["Communication", "Teamwork", "Leadership", "Time Management", "Problem Solving", "Decision Making"],
-  },
 ]
 
 export function Skills() {
@@ -35,14 +30,14 @@ export function Skills() {
 
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-            Skills & <span className="text-accent">Expertise</span>
+            A practical <span className="text-accent">stack.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Technologies and tools I use to bring ideas to life
+            The tools vary by problem. These are the ones I reach for most.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category, index) => {
             const Icon = category.icon
             return (
