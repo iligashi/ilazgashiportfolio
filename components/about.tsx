@@ -59,9 +59,10 @@ export function About() {
               Clear for the person using it. Thought through for the people building on it.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              I&apos;m a full-stack developer and Junior General Tech Engineer at Digital School. My work spans
-              client-facing websites, commerce, and database-backed products—connecting the experience people use
-              with the systems a business needs to run it.
+              I&apos;m a full-stack developer, co-founder at Nexora Agency LLC, and freelance partner to clients
+              around the world. At Digital School, I work on AI-enabled automation alongside technical operations.
+              Across these roles, I take ideas from discovery and planning into maintainable web products—connecting
+              user-facing experiences with the APIs, data models, and workflows behind them.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               I start by getting clear on the user and the task, then shape a focused flow and an implementation that
