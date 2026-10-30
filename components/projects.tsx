@@ -1,201 +1,157 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { useState } from "react"
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
+import { projects, type Project, type ProjectCategory } from "@/lib/projects"
 
-const projects = [
-  {
-    title: "Real Estate Marketplace",
-    description:
-      "Full-stack property marketplace with role-based accounts, property listings, search, and real-time messaging.",
-    tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    github: "https://github.com/iligashi/realestate",
-    demo: "",
-    image: "/modern-ecommerce-dashboard.png",
-  },
-  {
-    title: "Task Manager",
-    description: "Collaborative task manager with team workspaces, Kanban boards, tasks, comments, and file attachments.",
-    tags: ["Next.js", "TypeScript", "MongoDB"],
-    github: "https://github.com/iligashi/Task-Manager.git",
-    demo: "",
-    image: "/task-management-kanban.png",
-  },
-  {
-    title: "Weather Dashboard",
-    description: "Beautiful weather application with location-based forecasts and interactive data visualizations.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "API"],
-    github: "https://github.com/iligashi/WeatherDashboard.git",
-    demo: "https://weatherdashboard-navy.vercel.app/",
-    image: "/weather-dashboard-interface.png",
-  },
-  {
-    title: "Poliklinika Website",
-    description: "Book appointments, explore medical services, and connect with trusted doctors at Poliklinikaa",
-    tags: ["React", "Tailwind CSS", "React Router"],
-    github: "https://github.com/iligashi/Poliklinika.git",
-    demo: "https://poliklinikaa.netlify.app/",
-    image: "/poliklinika.png",
-  },
-  {
-    title: "Programuesi i Veturave",
-    description: "A responsive site for Programuesi i Veturave, a vehicle programming and customization service.",
-    tags: ["React.js", "TypeScript", "Tailwind CSS", ],
-    github: "https://github.com/iligashi/Programusi-i-Veturave-.git",
-    demo: "https://programuesiiveturave.netlify.app/",
-    image: "/programuesi.png",
-  },
-  {
-    title: "Fluks Dekor",
-    description: "A full-stack e-commerce platform selling furniture, decorations, and tools across Kosovo. Features product management with an admin panel, shopping cart, wishlist, order tracking, sale/new/best-seller sections, and fast 24-48h delivery.",
-    tags: ["React.js", "Node/Express.js", "Tailwind CSS", "PostgreSQL", "Godaddy"],
-    github: "https://github.com/iligashi/MoblieriaDardania",
-    demo: "https://flux-dekor.com/",
-    image: "/dlux.png",
-  },
-  {
-    title: "Nobel Venues",
-    description: "A sleek landing page for Nobel Venues, a luxury event hosting company. Showcasing elegant venue spaces, event services, and a refined user experience designed to attract premium clientele.",
-    tags: ["React.js", "Tailwind CSS"],
-    github: "https://github.com/iligashi/Nobel",
-    demo: "https://nobelvenues.netlify.app/",
-    image: "/nobel.png",
-  },
-  {
-    title: "74 Lounge Bar",
-    description: "A full-stack system for 74 Lounge Bar featuring an online ordering system, real-time messaging, table reservation, and a comprehensive admin panel to manage all operations seamlessly.",
-    tags: ["Next.js", "Node/Express.js", "SQL", "Railway"],
-    github: "https://github.com/iligashi/74-lounge-bar",
-    demo: "https://74loungebar.netlify.app/",
-    image: "/74.png",
-  },
+const filters: Array<"All work" | ProjectCategory> = [
+  "All work",
+  "Full-stack",
+  "E-commerce",
+  "Frontend",
+  "Dashboard",
 ]
 
-export function Projects() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observers = cardRefs.current.map((card, index) => {
-      if (!card) return null
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleCards((prev) => new Set(prev).add(index))
-            }
-          })
-        },
-        { threshold: 0.1 },
-      )
-
-      observer.observe(card)
-      return observer
-    })
-
-    return () => {
-      observers.forEach((observer) => observer?.disconnect())
-    }
-  }, [])
-
+function ProjectCard({ project, featured, lead = false }: { project: Project; featured: boolean; lead?: boolean }) {
   return (
-    <section id="projects" className="py-20 lg:py-32 px-4 bg-card/30">
-      <div className="container mx-auto max-w-7xl">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="font-mono text-sm text-accent">{"<projects>"}</span>
-          <div className="h-px flex-1 bg-border" />
+    <article
+      className={`group overflow-hidden rounded-2xl border bg-card transition-colors hover:border-accent ${
+        featured ? "border-accent/25" : "border-border"
+      } ${lead ? "lg:col-span-2" : ""}`}
+    >
+      <div className={`relative overflow-hidden bg-muted ${lead ? "aspect-[16/8]" : "aspect-video"}`}>
+        <Image
+          src={project.image}
+          alt={`${project.title} project preview`}
+          fill
+          sizes={lead ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-background/80 px-3 py-1 font-mono text-xs text-foreground backdrop-blur">
+          {project.category}
+        </span>
+      </div>
+
+      <div className="space-y-4 p-5 md:p-6">
+        <div>
+          <h3 className="text-xl font-semibold tracking-tight">{project.title}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
         </div>
 
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-            Featured <span className="text-accent">Projects</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            A collection of my recent work showcasing full-stack development skills and modern web technologies
+        <ul className="flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
+          {project.tags.map((tag) => (
+            <li key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+              {tag}
+            </li>
+          ))}
+        </ul>
+
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-4">
+          {project.caseStudy && (
+            <Link
+              href={`/projects/${project.slug}`}
+              className="inline-flex items-center gap-1 text-sm font-medium text-accent hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              Read case study <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          )}
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              Live site <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          )}
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            Source <Github className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+export function Projects() {
+  const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All work")
+  const visibleProjects =
+    activeFilter === "All work" ? projects : projects.filter((project) => project.category === activeFilter)
+  const featuredProjects = visibleProjects.filter((project) => project.featured)
+  const otherProjects = visibleProjects.filter((project) => !project.featured)
+
+  return (
+    <section id="projects" className="px-4 py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex items-center gap-4">
+          <span className="font-mono text-sm text-accent">Selected work</span>
+          <div className="h-px flex-1 bg-border" />
+          <span className="font-mono text-xs text-muted-foreground">01 — 08</span>
+        </div>
+
+        <div className="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="mb-3 font-mono text-sm text-accent">A few things I&apos;ve worked on</p>
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+              Work with a <span className="text-accent">purpose.</span>
+            </h2>
+          </div>
+          <p className="max-w-md leading-relaxed text-muted-foreground">
+            Product work is more than a stack. These projects show the problem, the decisions, and the experience I
+            focused on building.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              ref={(el) => {
-                cardRefs.current[index] = el
-              }}
-              className={`group overflow-hidden border-border hover:border-accent transition-all duration-500 hover:shadow-lg hover:shadow-accent/20 ${
-                visibleCards.has(index) ? "animate-fade-in-up opacity-100" : "opacity-0"
+        <div className="mb-8 flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              aria-pressed={activeFilter === filter}
+              onClick={() => setActiveFilter(filter)}
+              className={`rounded-full border px-4 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                activeFilter === filter
+                  ? "border-accent bg-accent text-accent-foreground"
+                  : "border-border bg-card text-muted-foreground hover:border-accent hover:text-foreground"
               }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="relative overflow-hidden aspect-video bg-muted">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <CardHeader>
-                <CardTitle className="text-xl group-hover:text-accent transition-colors duration-300">
-                  {project.title}
-                </CardTitle>
-                <CardDescription className="text-sm leading-relaxed">{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, tagIndex) => (
-                    <Badge
-                      key={tagIndex}
-                      variant="secondary"
-                      className="bg-accent/10 text-accent border-accent/20 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  {project.github && (
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className={`border-accent/50 hover:bg-accent hover:text-accent-foreground bg-transparent transition-all duration-300 hover:scale-105 ${project.demo ? "flex-1" : "w-full"}`}
-                      asChild
-                    >
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                    </Button>
-                  )}
-                  {project.demo && (
-                    <Button
-                      size="sm"
-                      className={`bg-accent hover:bg-accent/90 transition-all duration-300 hover:scale-105 ${project.github ? "flex-1" : "w-full"}`}
-                      asChild
-                    >
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </a>
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+              {filter}
+            </button>
           ))}
+          <span className="sr-only" aria-live="polite">
+            Showing {visibleProjects.length} projects
+          </span>
         </div>
 
-        <div className="flex items-center gap-4 mt-12">
-          <div className="h-px flex-1 bg-border" />
-          <span className="font-mono text-sm text-accent">{"</projects>"}</span>
-        </div>
+        {featuredProjects.length > 0 && (
+          <div className="mb-14">
+            <h3 className="mb-5 text-xl font-semibold">Featured case studies</h3>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard key={project.slug} project={project} featured lead={index === 0} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {otherProjects.length > 0 && (
+          <div>
+            {featuredProjects.length > 0 && <h3 className="mb-5 text-xl font-semibold">More projects</h3>}
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {otherProjects.map((project) => (
+                <ProjectCard key={project.slug} project={project} featured={false} />
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

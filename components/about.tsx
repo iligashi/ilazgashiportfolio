@@ -1,142 +1,98 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import { ArrowDownRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+const principles = [
+  {
+    number: "01",
+    title: "Understand the problem",
+    description: "Get clear on who the product serves and where the current experience falls short.",
+  },
+  {
+    number: "02",
+    title: "Shape the experience",
+    description: "Turn ambiguous requirements into a focused flow, useful interface, and workable technical plan.",
+  },
+  {
+    number: "03",
+    title: "Build for the next change",
+    description: "Deliver in small, understandable pieces that are easier to maintain and extend.",
+  },
+]
 
 export function About() {
-  const skills = [
-    "React",
-    "Next.js", 
-    "TypeScript",
-    "JavaScript",
-    "Node.js",
-    "MongoDB",
-    "SQL",
-    "Tailwind CSS",
-    "Bootstrap"
-  ]
-
   const scrollToContact = () => {
-    const element = document.getElementById("contact")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section id="about" className="py-20 lg:py-32 px-4 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container mx-auto max-w-7xl relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            About <span className="text-accent">Me</span>
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
+    <section id="about" className="px-4 py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex items-center gap-4">
+          <span className="font-mono text-sm text-accent">A little about me</span>
+          <div className="h-px flex-1 bg-border" />
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
-          {/* Left Column */}
-          <div className="space-y-10 lg:space-y-10">
-            {/* Who I Am Section */}
-            <div className="group">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-accent transition-colors">
-                Who I Am
-              </h3>
-              <div className="w-16 h-1 bg-accent mb-6 rounded-full group-hover:w-24 transition-all duration-300" />
-              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-                I'm a Junior General Tech Engineer at Digital School and a full-stack developer focused on responsive web applications. I work mainly with React, Next.js, TypeScript, and Node.js. My background combines hands-on technical support with practical software projects, including client websites and database-backed applications.
-              </p>
-            </div>
-
-            {/* My Expertise Section */}
-            <div className="group">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-accent transition-colors">
-                My Expertise
-              </h3>
-              <div className="w-16 h-1 bg-accent mb-6 rounded-full group-hover:w-24 transition-all duration-300" />
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill) => (
-                  <Badge
-                    key={skill}
-                    variant="secondary"
-                    className="text-sm px-4 py-2 bg-card hover:bg-accent hover:text-accent-foreground transition-all duration-300 border border-border hover:border-accent cursor-default"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Center - Image (Mobile) */}
-          <div className="flex items-center justify-center my-12 lg:hidden relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-72 h-72 bg-accent/30 rounded-full blur-3xl" />
-            </div>
-            <div className="relative w-64 h-64 rounded-full overflow-hidden">
+        <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div className="relative mx-auto w-full max-w-md">
+            <div className="absolute -inset-4 rounded-3xl border border-accent/20" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
               <Image
                 src="/ili1.png"
                 alt="Ilaz Gashi"
                 fill
+                sizes="(max-width: 1024px) 80vw, 400px"
                 className="object-cover"
-                priority
               />
+            </div>
+            <div className="absolute -bottom-5 -right-4 rounded-xl border border-border bg-card px-5 py-4 shadow-xl">
+              <p className="font-mono text-xs text-muted-foreground">Based in</p>
+              <p className="mt-1 font-semibold">Prishtina, Kosovo</p>
             </div>
           </div>
 
-          {/* Center - Image (Desktop) */}
-          <div className="hidden lg:flex items-center justify-center relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[500px] h-[500px] bg-accent/30 rounded-full blur-3xl" />
-            </div>
-            <div className="relative w-96 h-96 rounded-full overflow-hidden">
-              <Image
-                src="/ili1.png"
-                alt="Ilaz Gashi"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+          <div>
+            <p className="font-mono text-sm text-accent">Product thinking meets practical engineering</p>
+            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+              I care about what we build—and how it holds up.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              I&apos;m a Junior General Tech Engineer at Digital School and a full-stack developer. My work spans
+              responsive client websites, commerce, and database-backed applications. I enjoy taking a rough idea,
+              finding the real user need, and shaping it into an experience that feels straightforward to use and
+              straightforward to maintain.
+            </p>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              My technical work centers on React, Next.js, TypeScript, and Node.js. Alongside software projects, my
+              day-to-day technical support experience has taught me to listen carefully, troubleshoot methodically,
+              and make technology work for the people using it.
+            </p>
+            <Button className="mt-7 gap-2" onClick={scrollToContact}>
+              Get in touch <ArrowDownRight className="h-4 w-4" aria-hidden="true" />
+            </Button>
           </div>
+        </div>
 
-          {/* Right Column */}
-          <div className="space-y-10">
-            {/* My Approach Section */}
-            <div className="group">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-accent transition-colors">
-                My Approach
-              </h3>
-              <div className="w-16 h-1 bg-accent mb-6 rounded-full group-hover:w-24 transition-all duration-300" />
-              <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-                I believe in learning through building — solving real-world problems with creativity and precision. Every project is an opportunity to grow, collaborate, and create value. My focus is on developing scalable, maintainable, and user-centered solutions that not only meet but exceed expectations.
-              </p>
+        <div className="mt-24 border-t border-border pt-10">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="font-mono text-sm text-accent">My approach</p>
+              <h3 className="mt-2 text-2xl font-semibold">A thoughtful path from problem to product.</h3>
             </div>
-
-            {/* Let's Work Together Section */}
-            <div className="group">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-accent transition-colors">
-                Let's Work Together
-              </h3>
-              <div className="w-16 h-1 bg-accent mb-6 rounded-full group-hover:w-24 transition-all duration-300" />
-              <p className="text-muted-foreground leading-relaxed text-base md:text-lg mb-6">
-                Whether you're looking to build a new app, improve an existing project, or bring your ideas to life on the web, I'm here to help make it happen. Let's collaborate and turn your vision into reality.
-              </p>
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-8 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/30"
-              >
-                Get in Touch
-              </Button>
-            </div>
+            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+              Good engineering starts with the right question, then keeps the user and the next iteration in view.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {principles.map((principle) => (
+              <article key={principle.number} className="rounded-2xl border border-border bg-card/60 p-6">
+                <span className="font-mono text-sm text-accent">{principle.number}</span>
+                <h4 className="mt-5 text-lg font-semibold">{principle.title}</h4>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{principle.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </div>
