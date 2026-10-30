@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
 import { Code2, Database, Wrench, Users } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -28,35 +25,8 @@ const skillCategories = [
 ]
 
 export function Skills() {
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observers = cardRefs.current.map((card, index) => {
-      if (!card) return null
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleCards((prev) => new Set(prev).add(index))
-            }
-          })
-        },
-        { threshold: 0.1 },
-      )
-
-      observer.observe(card)
-      return observer
-    })
-
-    return () => {
-      observers.forEach((observer) => observer?.disconnect())
-    }
-  }, [])
-
   return (
-    <section id="skills" className="py-20 lg:py-32 px-4 bg-card/30">
+    <section id="skills" className="bg-card/20 px-4 py-28 lg:py-40">
       <div className="container mx-auto max-w-6xl">
         <div className="flex items-center gap-4 mb-12">
           <span className="font-mono text-sm text-accent">{"<skills>"}</span>
@@ -78,20 +48,14 @@ export function Skills() {
             return (
               <Card
                 key={index}
-                ref={(el) => {
-                  cardRefs.current[index] = el
-                }}
-                className={`border-border hover:border-accent transition-all duration-500 group ${
-                  visibleCards.has(index) ? "animate-slide-up opacity-100" : "opacity-0"
-                }`}
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="group border-border/80 bg-card/60 transition-colors duration-300 hover:border-accent/50"
               >
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-xl">
-                    <div className="p-2 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
-                      <Icon className="w-5 h-5" />
+                    <div className="rounded-lg border border-border bg-background/50 p-2 text-accent">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <span className="group-hover:text-accent transition-colors duration-300">{category.title}</span>
+                    <span>{category.title}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -99,7 +63,7 @@ export function Skills() {
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1.5 text-sm rounded-md bg-accent/10 text-accent border border-accent/20 hover:bg-accent hover:text-accent-foreground transition-all duration-300 cursor-default hover:scale-110 hover:-translate-y-1"
+                        className="cursor-default rounded-full border border-border bg-background/50 px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
                       >
                         {skill}
                       </span>
