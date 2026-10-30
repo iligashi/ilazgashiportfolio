@@ -37,7 +37,7 @@ const education = [
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 lg:py-32 px-4">
+    <section id="experience" className="px-4 py-28 lg:py-40">
       <div className="container mx-auto max-w-6xl">
         <div className="flex items-center gap-4 mb-12">
           <span className="font-mono text-sm text-accent">{"<experience>"}</span>
@@ -62,7 +62,7 @@ export function Experience() {
             </div>
             <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <Card key={index} className="border-border hover:border-accent transition-all duration-300 group">
+                <Card key={index} className="group border-border/80 bg-card/60 transition-colors duration-300 hover:border-accent/50">
                   <CardHeader>
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
                       <CardTitle className="text-xl group-hover:text-accent transition-colors">{exp.title}</CardTitle>
@@ -100,7 +100,7 @@ export function Experience() {
             </div>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <Card key={index} className="border-border hover:border-accent transition-all duration-300 group">
+                <Card key={index} className="group border-border/80 bg-card/60 transition-colors duration-300 hover:border-accent/50">
                   <CardHeader>
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
                       <CardTitle className="text-xl group-hover:text-accent transition-colors">{edu.title}</CardTitle>

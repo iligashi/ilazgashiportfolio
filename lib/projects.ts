@@ -16,6 +16,7 @@ export interface Project {
     decisions: string[]
     outcomeTitle: string
     outcome: string
+    cardOutcome: string
   }
 }
 
@@ -46,6 +47,7 @@ export const projects: Project[] = [
       outcomeTitle: "Commerce and operations in one flow",
       outcome:
         "The result brings product discovery, purchasing, and order management together, with delivery information visible as part of the customer experience.",
+      cardOutcome: "Connected product discovery, purchasing, and order management in one commerce experience.",
     },
   },
   {
@@ -72,6 +74,7 @@ export const projects: Project[] = [
       outcomeTitle: "Shared context for team work",
       outcome:
         "The application gives teams a single place to plan work, follow progress, and exchange task-specific context.",
+      cardOutcome: "Brought planning, progress updates, and task conversations into one shared workspace.",
     },
   },
   {
@@ -99,6 +102,7 @@ export const projects: Project[] = [
       outcomeTitle: "From discovery to conversation",
       outcome:
         "The marketplace connects property discovery with direct communication, supporting the core journey from browsing to inquiry.",
+      cardOutcome: "Connected property discovery with direct messaging around listings.",
     },
   },
   {
