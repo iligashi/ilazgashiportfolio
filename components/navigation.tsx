@@ -28,12 +28,22 @@ export function Navigation() {
 
   return (
     <>
-      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-7xl px-4 transition-all duration-300">
-        <div className={`${isScrolled ? "bg-card rounded-full shadow-2xl border border-border" : "bg-transparent rounded-none shadow-none border-none"} px-6 lg:px-8 py-4 transition-all duration-300`}>
+      <nav
+        aria-label="Primary navigation"
+        className="fixed left-1/2 top-3 z-50 w-full max-w-7xl -translate-x-1/2 px-4"
+      >
+        <div
+          className={`rounded-full border px-5 py-3 transition-colors duration-300 md:px-7 ${
+            isScrolled
+              ? "border-border/80 bg-background/90 shadow-md backdrop-blur-xl"
+              : "border-transparent bg-background/30 backdrop-blur-md"
+          }`}
+        >
           <div className="flex items-center justify-between">
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-lg lg:text-xl font-bold text-foreground hover:text-accent transition-colors tracking-tight"
+              aria-label="Ilaz Gashi — home"
+              className="text-lg font-bold tracking-tight text-foreground transition-colors hover:text-accent"
             >
               {"<IG/>"}
             </button>
@@ -42,32 +52,32 @@ export function Navigation() {
             <div className="hidden md:flex items-center gap-6 lg:gap-8">
               <button
                 onClick={() => scrollToSection("hero")}
-                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
+                className="rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
+                className="rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
-                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
+                className="rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Works
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-sm font-semibold text-foreground hover:text-accent transition-colors"
+                className="rounded-sm text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
               >
                 Contact
               </button>
               <Button
                 size="sm"
                 onClick={() => setIsModalOpen(true)}
-                className="bg-accent text-accent-foreground hover:bg-accent/90 rounded-full px-6"
+                className="rounded-full px-5"
               >
                 Start a Project
               </Button>
