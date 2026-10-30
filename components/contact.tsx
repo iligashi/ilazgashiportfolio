@@ -1,214 +1,87 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 export function Contact() {
-  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set())
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-
-  useEffect(() => {
-    const observers = cardRefs.current.map((card, index) => {
-      if (!card) return null
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleCards((prev) => new Set(prev).add(index))
-            }
-          })
-        },
-        { threshold: 0.1 },
-      )
-
-      observer.observe(card)
-      return observer
-    })
-
-    return () => {
-      observers.forEach((observer) => observer?.disconnect())
-    }
-  }, [])
-
   return (
-    <section id="contact" className="py-20 lg:py-32 px-4">
-      <div className="container mx-auto max-w-4xl">
-        <div className="flex items-center gap-4 mb-12">
-          <span className="font-mono text-sm text-accent">{"<contact>"}</span>
+    <section id="contact" className="px-4 py-28 lg:py-40">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 flex items-center gap-4">
+          <span className="font-mono text-sm text-accent">Start a conversation</span>
           <div className="h-px flex-1 bg-border" />
         </div>
 
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-            Let&apos;s build something <span className="text-accent">useful.</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            Have a product idea, a web experience to improve, or a team looking for a thoughtful engineer? Tell me what
-            you&apos;re working on and let&apos;s start a conversation.
-          </p>
-        </div>
+        <div className="grid gap-10 rounded-2xl border border-border bg-card/60 p-7 md:p-10 lg:grid-cols-[1fr_auto] lg:items-end lg:p-14">
+          <div className="max-w-3xl">
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+              Available for product-focused frontend and full-stack roles
+            </p>
+            <h2 className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              Let&apos;s build something <span className="text-accent">useful.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+              I&apos;m looking for product work where thoughtful UX and solid engineering matter. If you&apos;re
+              building a web product or improving an existing experience, I&apos;d like to hear about it.
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <Card
-            ref={(el) => {
-              cardRefs.current[0] = el
-            }}
-            className={`border-border hover:border-accent transition-all duration-500 group hover:shadow-lg hover:shadow-accent/20 ${
-              visibleCards.has(0) ? "animate-fade-in-up opacity-100" : "opacity-0"
-            }`}
-            style={{ animationDelay: "0s" }}
-          >
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <CardTitle className="text-lg">Email</CardTitle>
-                  <CardDescription>For product ideas and collaboration</CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <a
-                href="mailto:ilazgashi258@gmail.com"
-                className="text-accent hover:underline font-mono text-sm transition-all duration-300 hover:text-accent/80"
-              >
-                ilazgashi258@gmail.com
+          <div className="flex flex-col items-start gap-4 lg:items-end">
+            <Button asChild size="lg" className="gap-2">
+              <a href="mailto:ilazgashi258@gmail.com">
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                Email me
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </a>
-            </CardContent>
-          </Card>
-
-          <Card
-            ref={(el) => {
-              cardRefs.current[1] = el
-            }}
-            className={`border-border hover:border-accent transition-all duration-500 group hover:shadow-lg hover:shadow-accent/20 ${
-              visibleCards.has(1) ? "animate-fade-in-up opacity-100" : "opacity-0"
-            }`}
-            style={{ animationDelay: "0.1s" }}
-          >
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <CardTitle className="text-lg">Phone</CardTitle>
-                  <CardDescription>Give me a call</CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <a
-                href="tel:+38349732127"
-                className="text-accent hover:underline font-mono text-sm transition-all duration-300 hover:text-accent/80"
-              >
-                +383 49 732 127
-              </a>
-            </CardContent>
-          </Card>
-
-          <Card
-            ref={(el) => {
-              cardRefs.current[2] = el
-            }}
-            className={`border-border hover:border-accent transition-all duration-500 group hover:shadow-lg hover:shadow-accent/20 ${
-              visibleCards.has(2) ? "animate-fade-in-up opacity-100" : "opacity-0"
-            }`}
-            style={{ animationDelay: "0.2s" }}
-          >
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <div>
-                  <CardTitle className="text-lg">Location</CardTitle>
-                  <CardDescription>Where I'm based</CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground text-sm">
-                Prishtina, Kosovo
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card
-            ref={(el) => {
-              cardRefs.current[3] = el
-            }}
-            className={`border-border hover:border-accent transition-all duration-500 group hover:shadow-lg hover:shadow-accent/20 ${
-              visibleCards.has(3) ? "animate-fade-in-up opacity-100" : "opacity-0"
-            }`}
-            style={{ animationDelay: "0.3s" }}
-          >
-            <CardHeader>
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
-                  <Send className="w-5 h-5" />
-                </div>
-                <div>
-                  <CardTitle className="text-lg">Social</CardTitle>
-                  <CardDescription>Connect with me</CardDescription>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="flex gap-3">
-                <a
-                  href="https://github.com/iligashi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/ilaz-gashi-a2b868259"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-accent/10 text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 hover:-translate-y-1"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="text-center">
-          <Button
-            size="lg"
-            className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/30"
-            asChild
-          >
-            <a href="mailto:ilazgashi258@gmail.com">
-              <Mail className="w-5 h-5 mr-2" />
-              Send Me an Email
+            </Button>
+            <a
+              href="mailto:ilazgashi258@gmail.com"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              ilazgashi258@gmail.com
             </a>
-          </Button>
+          </div>
         </div>
 
-        <div className="flex items-center gap-4 mt-12">
-          <div className="h-px flex-1 bg-border" />
-          <span className="font-mono text-sm text-accent">{"</contact>"}</span>
+        <div className="flex flex-col gap-5 border-b border-border py-7 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <span className="inline-flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-accent" aria-hidden="true" />
+              Prishtina, Kosovo
+            </span>
+            <a
+              href="tel:+38349732127"
+              className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+            >
+              <Phone className="h-4 w-4 text-accent" aria-hidden="true" />
+              +383 49 732 127
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/iligashi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ilaz Gashi on GitHub"
+              className="rounded-sm transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <Github className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ilaz-gashi-a2b868259"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ilaz Gashi on LinkedIn"
+              className="rounded-sm transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <Linkedin className="h-5 w-5" aria-hidden="true" />
+            </a>
+          </div>
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-sm text-muted-foreground">
-            Built with <span className="text-accent">Next.js</span>, <span className="text-accent">TypeScript</span>,
-            and <span className="text-accent">Tailwind CSS</span>
-          </p>
-          <p className="text-sm text-muted-foreground mt-2">
-            © {new Date().getFullYear()} Ilaz Gashi. All rights reserved.
-          </p>
-        </div>
+        <footer className="flex flex-col gap-2 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>Designed and built by Ilaz Gashi.</p>
+          <p>© {new Date().getFullYear()} Ilaz Gashi</p>
+        </footer>
       </div>
     </section>
   )

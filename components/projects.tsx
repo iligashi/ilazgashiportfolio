@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
+import { ArrowRight, ArrowUpRight, ExternalLink, Github } from "lucide-react"
 import { projects, type Project, type ProjectCategory } from "@/lib/projects"
 
 const filters: Array<"All work" | ProjectCategory> = [
@@ -14,41 +14,102 @@ const filters: Array<"All work" | ProjectCategory> = [
   "Dashboard",
 ]
 
-function ProjectCard({ project, featured, lead = false }: { project: Project; featured: boolean; lead?: boolean }) {
+function FeaturedProject({ project }: { project: Project }) {
   return (
-    <article
-      className={`group overflow-hidden rounded-2xl border bg-card transition-colors hover:border-accent ${
-        featured ? "border-accent/25" : "border-border"
-      } ${lead ? "lg:col-span-2" : ""}`}
-    >
-      <div className={`relative overflow-hidden bg-muted ${lead ? "aspect-[16/8]" : "aspect-video"}`}>
+    <article className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-xl shadow-black/10 md:grid-cols-[1.25fr_0.75fr]">
+      <div className="relative min-h-72 overflow-hidden bg-muted md:min-h-[520px] lg:min-h-[600px]">
         <Image
           src={project.image}
           alt={`${project.title} project preview`}
           fill
-          sizes={lead ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          sizes="(max-width: 768px) 100vw, 58vw"
+          className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
         />
-        <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-background/80 px-3 py-1 font-mono text-xs text-foreground backdrop-blur">
-          {project.category}
+        <span className="absolute left-5 top-5 rounded-full border border-white/15 bg-background/85 px-3 py-1.5 font-mono text-xs text-foreground backdrop-blur">
+          Flagship case study
         </span>
       </div>
 
-      <div className="space-y-4 p-5 md:p-6">
-        <div>
-          <h3 className="text-xl font-semibold tracking-tight">{project.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-        </div>
+      <div className="flex flex-col justify-center p-6 md:p-10 lg:p-14">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">{project.category}</p>
+        <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">{project.title}</h3>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{project.description}</p>
 
-        <ul className="flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
+        {project.caseStudy && (
+          <div className="mt-7 border-l-2 border-accent/60 pl-4">
+            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Product value</p>
+            <p className="mt-2 text-sm leading-relaxed text-foreground">{project.caseStudy.cardOutcome}</p>
+          </div>
+        )}
+
+        <ul className="mt-7 flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
           {project.tags.map((tag) => (
-            <li key={tag} className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground">
+            <li key={tag} className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
               {tag}
             </li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-4">
+        <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-5">
+          {project.caseStudy && (
+            <Link
+              href={`/projects/${project.slug}`}
+              className="inline-flex items-center gap-2 text-sm font-medium text-accent transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              Read the case study <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          )}
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              Live site <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          )}
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          >
+            Source <Github className="h-3.5 w-3.5" aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article className="group overflow-hidden rounded-xl border border-border/80 bg-card/60 transition-colors hover:border-accent/50">
+      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <Image
+          src={project.image}
+          alt={`${project.title} project preview`}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+        />
+      </div>
+
+      <div className="flex h-full flex-col p-5 md:p-6">
+        <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground">{project.category}</p>
+        <h4 className="mt-2 text-xl font-semibold tracking-tight">{project.title}</h4>
+        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+
+        <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
+          {project.tags.map((tag) => (
+            <li key={tag} className="rounded-full bg-secondary/70 px-3 py-1 text-xs text-secondary-foreground">
+              {tag}
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-border pt-4">
           {project.caseStudy && (
             <Link
               href={`/projects/${project.slug}`}
@@ -89,18 +150,18 @@ export function Projects() {
   const otherProjects = visibleProjects.filter((project) => !project.featured)
 
   return (
-    <section id="projects" className="px-4 py-24 lg:py-32">
+    <section id="projects" className="px-4 py-28 lg:py-40">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 flex items-center gap-4">
+        <div className="mb-16 flex items-center gap-4">
           <span className="font-mono text-sm text-accent">Selected work</span>
           <div className="h-px flex-1 bg-border" />
           <span className="font-mono text-xs text-muted-foreground">01 — 08</span>
         </div>
 
-        <div className="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="mb-14 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="mb-3 font-mono text-sm text-accent">A few things I&apos;ve worked on</p>
-            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
               Work with a <span className="text-accent">purpose.</span>
             </h2>
           </div>
@@ -132,22 +193,33 @@ export function Projects() {
         </div>
 
         {featuredProjects.length > 0 && (
-          <div className="mb-14">
-            <h3 className="mb-5 text-xl font-semibold">Featured case studies</h3>
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {featuredProjects.map((project, index) => (
-                <ProjectCard key={project.slug} project={project} featured lead={index === 0} />
-              ))}
-            </div>
+          <div className="mb-16">
+            <FeaturedProject project={featuredProjects[0]} />
+            {featuredProjects.length > 1 && (
+              <div className="mt-12">
+                <h3 className="mb-5 text-sm font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  More featured work
+                </h3>
+                <div className="grid gap-5 md:grid-cols-2">
+                  {featuredProjects.slice(1).map((project) => (
+                    <ProjectCard key={project.slug} project={project} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
         {otherProjects.length > 0 && (
-          <div>
-            {featuredProjects.length > 0 && <h3 className="mb-5 text-xl font-semibold">More projects</h3>}
+          <div className="border-t border-border pt-10">
+            {featuredProjects.length > 0 && (
+              <h3 className="mb-6 text-sm font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                More projects
+              </h3>
+            )}
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {otherProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} featured={false} />
+                <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
           </div>
