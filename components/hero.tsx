@@ -22,8 +22,8 @@ export function Hero() {
     <section id="hero" className="relative flex min-h-[90svh] items-center overflow-hidden px-4 pb-20 pt-32">
       <div className="pointer-events-none absolute -right-32 top-1/4 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
       <div className="container relative z-10 mx-auto max-w-7xl">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
-          <div className="max-w-4xl">
+        <div className="max-w-5xl">
+          <div>
             <p className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">Ilaz Gashi</span>
               <span aria-hidden="true" className="text-border">/</span>
@@ -39,9 +39,9 @@ export function Hero() {
               I build digital products that make{" "}
               <span className="text-accent">complex work feel simple.</span>
             </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-              From the first product question to the final interface, I turn real needs into clear, reliable web
-              experiences—with thoughtful UX and maintainable engineering.
+            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+              I connect product needs to clear user flows, considered interfaces, and dependable full-stack foundations.
+              The result: useful experiences that make sense to use and remain practical to evolve.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button size="lg" className="gap-2 font-semibold" onClick={scrollToProjects}>
@@ -80,23 +80,6 @@ export function Hero() {
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-border/80 bg-card/60 p-7 md:p-8">
-            <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">Principles I work by</p>
-            <ul className="mt-5 divide-y divide-border">
-              <li className="py-4">
-                <p className="font-medium">Start with the user</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Understand the need before choosing the feature.</p>
-              </li>
-              <li className="py-4">
-                <p className="font-medium">Make complexity feel clear</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Build focused flows and interfaces people can trust.</p>
-              </li>
-              <li className="py-4">
-                <p className="font-medium">Leave room to grow</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">Prefer maintainable foundations over clever shortcuts.</p>
-              </li>
-            </ul>
-          </aside>
         </div>
 
         <button

@@ -3,7 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
-import { ArrowRight, ArrowUpRight, ExternalLink, Github } from "lucide-react"
+import { ArrowDown, ArrowRight, ArrowUpRight, ExternalLink, Github } from "lucide-react"
 import { projects, type Project, type ProjectCategory } from "@/lib/projects"
 
 const filters: Array<"All work" | ProjectCategory> = [
@@ -36,9 +36,19 @@ function FeaturedProject({ project }: { project: Project }) {
         <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{project.description}</p>
 
         {project.caseStudy && (
-          <div className="mt-7 border-l-2 border-accent/60 pl-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Product value</p>
-            <p className="mt-2 text-sm leading-relaxed text-foreground">{project.caseStudy.cardOutcome}</p>
+          <div className="mt-7 space-y-4 border-t border-border pt-5">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">The challenge</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-foreground">{project.caseStudy.cardChallenge}</p>
+            </div>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">My contribution</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-foreground">{project.caseStudy.cardContribution}</p>
+            </div>
+            <div className="border-l-2 border-accent/60 pl-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent">Outcome</p>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{project.caseStudy.cardOutcome}</p>
+            </div>
           </div>
         )}
 
@@ -101,6 +111,22 @@ function ProjectCard({ project }: { project: Project }) {
         <h4 className="mt-2 text-xl font-semibold tracking-tight">{project.title}</h4>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{project.description}</p>
 
+        {project.caseStudy && (
+          <div className="mt-5 space-y-3 border-t border-border pt-4">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Challenge</p>
+              <p className="mt-1 text-sm leading-relaxed">{project.caseStudy.cardChallenge}</p>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted-foreground">Contribution</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{project.caseStudy.cardContribution}</p>
+            </div>
+            <p className="border-l-2 border-accent/50 pl-3 text-sm leading-relaxed text-muted-foreground">
+              {project.caseStudy.cardOutcome}
+            </p>
+          </div>
+        )}
+
         <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${project.title} technologies`}>
           {project.tags.map((tag) => (
             <li key={tag} className="rounded-full bg-secondary/70 px-3 py-1 text-xs text-secondary-foreground">
@@ -144,10 +170,13 @@ function ProjectCard({ project }: { project: Project }) {
 
 export function Projects() {
   const [activeFilter, setActiveFilter] = useState<(typeof filters)[number]>("All work")
+  const [showAllProjects, setShowAllProjects] = useState(false)
   const visibleProjects =
     activeFilter === "All work" ? projects : projects.filter((project) => project.category === activeFilter)
   const featuredProjects = visibleProjects.filter((project) => project.featured)
   const otherProjects = visibleProjects.filter((project) => !project.featured)
+  const curatedProjects = activeFilter !== "All work" || showAllProjects ? otherProjects : []
+  const displayedProjectCount = featuredProjects.length + curatedProjects.length
 
   return (
     <section id="projects" className="px-4 py-28 lg:py-40">
@@ -155,19 +184,18 @@ export function Projects() {
         <div className="mb-16 flex items-center gap-4">
           <span className="font-mono text-sm text-accent">Selected work</span>
           <div className="h-px flex-1 bg-border" />
-          <span className="font-mono text-xs text-muted-foreground">01 — 08</span>
+          <span className="font-mono text-xs text-muted-foreground">01 — 03</span>
         </div>
 
         <div className="mb-14 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="mb-3 font-mono text-sm text-accent">A few things I&apos;ve worked on</p>
+            <p className="mb-3 font-mono text-sm text-accent">A focused selection</p>
             <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
               Work with a <span className="text-accent">purpose.</span>
             </h2>
           </div>
           <p className="max-w-md leading-relaxed text-muted-foreground">
-            Product work is more than a stack. These projects show the problem, the decisions, and the experience I
-            focused on building.
+            Three end-to-end case studies: the challenge, my contribution, and the product decisions behind each one.
           </p>
         </div>
 
@@ -188,7 +216,7 @@ export function Projects() {
             </button>
           ))}
           <span className="sr-only" aria-live="polite">
-            Showing {visibleProjects.length} projects
+            Showing {displayedProjectCount} projects
           </span>
         </div>
 
@@ -198,7 +226,7 @@ export function Projects() {
             {featuredProjects.length > 1 && (
               <div className="mt-12">
                 <h3 className="mb-5 text-sm font-medium uppercase tracking-[0.16em] text-muted-foreground">
-                  More featured work
+                  Supporting case studies
                 </h3>
                 <div className="grid gap-5 md:grid-cols-2">
                   {featuredProjects.slice(1).map((project) => (
@@ -210,7 +238,7 @@ export function Projects() {
           </div>
         )}
 
-        {otherProjects.length > 0 && (
+        {curatedProjects.length > 0 && (
           <div className="border-t border-border pt-10">
             {featuredProjects.length > 0 && (
               <h3 className="mb-6 text-sm font-medium uppercase tracking-[0.16em] text-muted-foreground">
@@ -218,10 +246,27 @@ export function Projects() {
               </h3>
             )}
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {otherProjects.map((project) => (
+              {curatedProjects.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </div>
+          </div>
+        )}
+
+        {activeFilter === "All work" && otherProjects.length > 0 && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setShowAllProjects((showAll) => !showAll)}
+              aria-expanded={showAllProjects}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm text-muted-foreground transition-colors hover:border-accent/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              {showAllProjects ? "Show selected work only" : `Explore ${otherProjects.length} more projects`}
+              <ArrowDown
+                className={`h-4 w-4 transition-transform ${showAllProjects ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
           </div>
         )}
       </div>
