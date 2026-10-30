@@ -14,14 +14,14 @@ export function Contact() {
           <div className="max-w-3xl">
             <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Open to product-focused opportunities
+              Available for product-focused frontend and full-stack roles
             </p>
             <h2 className="text-balance text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Have a useful problem to solve? <span className="text-accent">Let&apos;s talk.</span>
+              Let&apos;s build something <span className="text-accent">useful.</span>
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              I&apos;m interested in thoughtful product work, useful web applications, and teams that care about the
-              details. Share what you&apos;re working on and we can take it from there.
+              I&apos;m looking for product work where thoughtful UX and solid engineering matter. If you&apos;re
+              building a web product or improving an existing experience, I&apos;d like to hear about it.
             </p>
           </div>
 

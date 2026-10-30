@@ -33,7 +33,7 @@ export function Hero() {
             </p>
             <p className="mb-9 inline-flex items-center gap-2 rounded-full border border-border bg-card/70 px-3 py-1.5 text-xs text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              Open to product-focused opportunities
+              Available for product-focused frontend and full-stack roles
             </p>
             <h1 className="text-balance text-5xl font-semibold leading-[1.04] tracking-[-0.045em] md:text-7xl lg:text-8xl">
               I build digital products that make{" "}

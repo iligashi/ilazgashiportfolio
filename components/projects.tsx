@@ -16,8 +16,8 @@ const filters: Array<"All work" | ProjectCategory> = [
 
 function FeaturedProject({ project }: { project: Project }) {
   return (
-    <article className="grid overflow-hidden rounded-2xl border border-border bg-card md:grid-cols-[1.15fr_0.85fr]">
-      <div className="relative min-h-64 overflow-hidden bg-muted md:min-h-[440px]">
+    <article className="grid overflow-hidden rounded-2xl border border-border bg-card shadow-xl shadow-black/10 md:grid-cols-[1.25fr_0.75fr]">
+      <div className="relative min-h-72 overflow-hidden bg-muted md:min-h-[520px] lg:min-h-[600px]">
         <Image
           src={project.image}
           alt={`${project.title} project preview`}
@@ -26,14 +26,14 @@ function FeaturedProject({ project }: { project: Project }) {
           className="object-cover transition-transform duration-700 ease-out hover:scale-[1.02]"
         />
         <span className="absolute left-5 top-5 rounded-full border border-white/15 bg-background/85 px-3 py-1.5 font-mono text-xs text-foreground backdrop-blur">
-          Featured project
+          Flagship case study
         </span>
       </div>
 
-      <div className="flex flex-col justify-center p-6 md:p-9 lg:p-12">
+      <div className="flex flex-col justify-center p-6 md:p-10 lg:p-14">
         <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">{project.category}</p>
-        <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{project.title}</h3>
-        <p className="mt-4 leading-relaxed text-muted-foreground">{project.description}</p>
+        <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">{project.title}</h3>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{project.description}</p>
 
         {project.caseStudy && (
           <div className="mt-7 border-l-2 border-accent/60 pl-4">
