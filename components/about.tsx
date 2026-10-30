@@ -59,10 +59,10 @@ export function About() {
               I care about what we build—and how it holds up.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              I&apos;m a Junior General Tech Engineer at Digital School and a full-stack developer. My work spans
-              responsive client websites, commerce, and database-backed applications. I enjoy taking a rough idea,
-              finding the real user need, and shaping it into an experience that feels straightforward to use and
-              straightforward to maintain.
+              I&apos;m a full-stack developer, co-founder at Nexora Agency LLC, and freelance partner to clients
+              around the world. At Digital School, I work on AI-enabled automation alongside technical operations.
+              Across these roles, I take ideas from discovery and planning into maintainable web products—connecting
+              user-facing experiences with the APIs, data models, and workflows behind them.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               My technical work centers on React, Next.js, TypeScript, and Node.js. Alongside software projects, my

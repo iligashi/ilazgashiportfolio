@@ -6,15 +6,40 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const experiences = [
   {
     type: "work",
-    title: "Junior General Tech Engineer",
+    title: "Co-founder & Full-stack Developer",
+    company: "Nexora Agency LLC",
+    location: "Prishtine",
+    period: "Present",
+    description: [
+      "Lead client-facing product work, translating business goals into technical scope, priorities, and delivery plans.",
+      "Plan and build full-stack products from the ground up, shaping application architecture, data models, APIs, and responsive user interfaces.",
+      "Work with clients on product and business decisions, balancing delivery scope, usability, maintainability, and future growth.",
+      "Identify opportunities for AI-assisted task automation and plan how they can fit into scalable product workflows.",
+    ],
+  },
+  {
+    type: "work",
+    title: "Freelance Full-stack Developer",
+    company: "Independent",
+    location: "Remote · International clients",
+    period: "2023 - Present",
+    description: [
+      "Partner with clients around the world on varied web development projects, turning requirements into clear technical plans and useful product features.",
+      "Build across the full stack, connecting responsive interfaces with application logic, APIs, and data-backed workflows.",
+      "Make pragmatic implementation and architecture choices that fit each project's needs while keeping the result clear to maintain and extend.",
+    ],
+  },
+  {
+    type: "work",
+    title: "AI Developer & Junior General Tech Engineer",
     company: "Digital School / Shkolla Digjitale",
     location: "Prishtine",
     period: "November 2024 - Present",
     description: [
-      "Maintain and optimize classroom technology infrastructure including computers, networks, and digital learning platforms",
-      "Support educators and students with technical issues and troubleshoot software problems",
-      "Collaborate on implementing new tech solutions to improve the learning experience",
-      "Manage basic IT administrative tasks and ensure smooth operation of digital tools",
+      "Explore product and operational workflows to find repetitive tasks that could benefit from AI-enabled automation.",
+      "Develop and assess automation ideas with attention to practical product fit, reliability, and maintainability.",
+      "Maintain classroom technology infrastructure and support educators and students with software, device, and digital-platform issues.",
+      "Support the rollout of digital tools and the day-to-day operations that keep classes running.",
     ],
   },
 ]
@@ -49,7 +74,7 @@ export function Experience() {
             Experience & <span className="text-accent">Education</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            My professional journey and academic background in technology
+            Client-focused product development, AI-enabled automation, and a computer science foundation.
           </p>
         </div>
 
