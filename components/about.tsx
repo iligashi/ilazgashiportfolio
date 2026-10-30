@@ -7,18 +7,18 @@ import { Button } from "@/components/ui/button"
 const principles = [
   {
     number: "01",
-    title: "Understand the problem",
-    description: "Get clear on who the product serves and where the current experience falls short.",
+    title: "Start with the constraint",
+    description: "Clarify who needs the product, what they are trying to do, and where the current flow gets in the way.",
   },
   {
     number: "02",
-    title: "Shape the experience",
-    description: "Turn ambiguous requirements into a focused flow, useful interface, and workable technical plan.",
+    title: "Choose the useful trade-off",
+    description: "Prioritize the clearest useful workflow, then choose an implementation that fits its real needs.",
   },
   {
     number: "03",
-    title: "Build for the next change",
-    description: "Deliver in small, understandable pieces that are easier to maintain and extend.",
+    title: "Leave room for change",
+    description: "Keep the work understandable and the foundations practical to maintain as needs evolve.",
   },
 ]
 
@@ -31,7 +31,7 @@ export function About() {
     <section id="about" className="px-4 py-28 lg:py-40">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 flex items-center gap-4">
-          <span className="font-mono text-sm text-accent">A little about me</span>
+          <span className="font-mono text-sm text-accent">Product-minded engineering</span>
           <div className="h-px flex-1 bg-border" />
         </div>
 
@@ -54,9 +54,9 @@ export function About() {
           </div>
 
           <div>
-            <p className="font-mono text-sm text-accent">Product thinking meets practical engineering</p>
+            <p className="font-mono text-sm text-accent">People, product needs, and engineering constraints</p>
             <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
-              I care about what we build—and how it holds up.
+              Clear for the person using it. Thought through for the people building on it.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               I&apos;m a full-stack developer, co-founder at Nexora Agency LLC, and freelance partner to clients
@@ -65,9 +65,9 @@ export function About() {
               user-facing experiences with the APIs, data models, and workflows behind them.
             </p>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              My technical work centers on React, Next.js, TypeScript, and Node.js. Alongside software projects, my
-              day-to-day technical support experience has taught me to listen carefully, troubleshoot methodically,
-              and make technology work for the people using it.
+              I start by getting clear on the user and the task, then shape a focused flow and an implementation that
+              fits. React, Next.js, TypeScript, and Node.js are the tools I use to turn that thinking into maintainable
+              web experiences.
             </p>
             <Button className="mt-7 gap-2" onClick={scrollToContact}>
               Get in touch <ArrowDownRight className="h-4 w-4" aria-hidden="true" />
@@ -78,11 +78,11 @@ export function About() {
         <div className="mt-24 border-t border-border pt-10">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="font-mono text-sm text-accent">My approach</p>
-              <h3 className="mt-2 text-2xl font-semibold">A thoughtful path from problem to product.</h3>
+              <p className="font-mono text-sm text-accent">How I make product decisions</p>
+              <h3 className="mt-2 text-2xl font-semibold">Start with the need. Make the trade-off deliberately.</h3>
             </div>
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              Good engineering starts with the right question, then keeps the user and the next iteration in view.
+              I align the user need, product scope, and engineering effort before choosing how to build.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">

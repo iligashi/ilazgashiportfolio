@@ -52,10 +52,9 @@ const education = [
     location: "Prishtine",
     period: "October 2022 - June 2025",
     description: [
-      "Studied core areas including programming, algorithms, data structures, databases, and software engineering",
-      "Gained hands-on experience through practical labs, group projects, and real-world applications",
-      "Worked with modern technologies such as Java, Python, and web development tools",
-      "Completed capstone project focused on solving real-world problems using software engineering principles",
+      "Coursework across programming, algorithms, data structures, databases, and software engineering",
+      "Applied those foundations in practical labs and group projects, including a capstone focused on a real-world problem",
+      "Worked with Java, Python, and web development technologies",
     ],
   },
 ]
