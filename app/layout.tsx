@@ -11,9 +11,19 @@ import "@fontsource/roboto-mono/700.css"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Ilaz Gashi - Full-Stack Developer",
+  title: {
+    default: "Ilaz Gashi — Product-minded Full-stack Developer",
+    template: "%s | Ilaz Gashi",
+  },
   description:
-    "Portfolio of Ilaz Gashi - Junior General Tech Engineer specializing in React, TypeScript, Next.js, and modern web development",
+    "Ilaz Gashi is a product-minded full-stack developer in Prishtina, Kosovo, building thoughtful web experiences with React, Next.js, TypeScript, and Node.js.",
+  openGraph: {
+    title: "Ilaz Gashi — Product-minded Full-stack Developer",
+    description:
+      "Thoughtful product experiences, practical engineering, and selected web projects by Ilaz Gashi.",
+    type: "website",
+    locale: "en_US",
+  },
   icons: {
     icon: "/fav.png",
   },

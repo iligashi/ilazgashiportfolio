@@ -10,6 +10,23 @@
 This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
 Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
 
+## Portfolio
+
+The site presents selected product work, with filters for project type and dedicated case studies for Fluks Dekor,
+Task Manager, and the Real Estate Marketplace. Case studies describe the project scope and product decisions without
+inventing performance metrics.
+
+## Run locally
+
+Requirements: Node.js and pnpm.
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). Run `pnpm build` to create a production build.
+
 ## Deployment
 
 Your project is live at:

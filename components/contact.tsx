@@ -43,10 +43,11 @@ export function Contact() {
 
         <div className="mb-16 text-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-            Get In <span className="text-accent">Touch</span>
+            Let&apos;s build something <span className="text-accent">useful.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision
+            Have a product idea, a web experience to improve, or a team looking for a thoughtful engineer? Tell me what
+            you&apos;re working on and let&apos;s start a conversation.
           </p>
         </div>
 
@@ -67,7 +68,7 @@ export function Contact() {
                 </div>
                 <div>
                   <CardTitle className="text-lg">Email</CardTitle>
-                  <CardDescription>Drop me a line</CardDescription>
+                  <CardDescription>For product ideas and collaboration</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -204,7 +205,9 @@ export function Contact() {
             Built with <span className="text-accent">Next.js</span>, <span className="text-accent">TypeScript</span>,
             and <span className="text-accent">Tailwind CSS</span>
           </p>
-          <p className="text-sm text-muted-foreground mt-2">© 2025 Ilaz Gashi. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground mt-2">
+            © {new Date().getFullYear()} Ilaz Gashi. All rights reserved.
+          </p>
         </div>
       </div>
     </section>
