@@ -225,9 +225,9 @@ export function Flagship() {
                 <AnimatePresence mode="popLayout" initial={false}>
                   <motion.div
                     key={chapters[active].id}
-                    initial={{ opacity: 0, y: 40, scale: 0.96, filter: "blur(8px)" }}
-                    animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -40, scale: 0.96, filter: "blur(8px)" }}
+                    initial={{ opacity: 0, y: 40, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -40, scale: 0.97 }}
                     transition={{ duration: 0.6, ease }}
                   >
                     <ChapterVisual chapter={chapters[active]} />

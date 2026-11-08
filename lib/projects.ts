@@ -165,13 +165,14 @@ export const projects: Project[] = [
   },
   {
     slug: "nobel-venues",
-    title: "Nobel Venues",
-    description: "A refined landing page showcasing event spaces and services for a premium venue business.",
+    title: "Hotel Nobel",
+    description:
+      "The live website for Hotel Nobel, a luxury wedding and event venue in Drenas, Kosovo: three halls, menus, a gallery and reservations.",
     category: "Frontend",
     tags: ["React", "Tailwind CSS"],
     github: "https://github.com/iligashi/Nobel",
-    demo: "https://nobelvenues.netlify.app/",
-    image: "/work/nobel.png",
+    demo: "https://hotelnobel-ks.com/",
+    image: "/work/nobel.jpg",
   },
   {
     slug: "74-lounge-bar",

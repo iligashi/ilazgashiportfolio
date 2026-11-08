@@ -9,23 +9,13 @@ import { projects, type Project } from "@/lib/projects"
 import { Reveal, SectionLabel, SplitWords, spotlightHandler } from "@/components/motion/primitives"
 import { KanbanArt } from "@/components/site/kanban-art"
 
-const order = [
-  "fluks-dekor",
-  "task-manager",
-  "74-lounge-bar",
-  "weather-dashboard",
-  "poliklinika",
-  "nobel-venues",
-  "programuesi-i-veturave",
-]
+const order = ["fluks-dekor", "nobel-venues", "74-lounge-bar", "weather-dashboard", "task-manager"]
 const layout: Record<string, string> = {
   "fluks-dekor": "md:col-span-2 md:row-span-2",
-  "task-manager": "",
+  "nobel-venues": "",
   "74-lounge-bar": "",
   "weather-dashboard": "md:col-span-2",
-  poliklinika: "",
-  "nobel-venues": "",
-  "programuesi-i-veturave": "md:col-span-2",
+  "task-manager": "",
 }
 
 function Cover({ project, large }: { project: Project; large: boolean }) {
@@ -136,7 +126,7 @@ export function WorkGrid() {
           </h2>
           <Reveal delay={0.2}>
             <p className="max-w-xs text-sm leading-relaxed text-muted">
-              Commerce, hospitality, healthcare and team tools. Screenshots are taken from the live sites.
+              Commerce, hospitality, events and team tools. Screenshots are taken from the live sites.
             </p>
           </Reveal>
         </div>
@@ -145,6 +135,17 @@ export function WorkGrid() {
             <WorkCard key={p.slug} project={p} index={i} />
           ))}
         </div>
+        <Reveal className="mt-10 flex justify-center">
+          <a
+            href="https://github.com/iligashi?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-sm text-muted transition-colors hover:border-foreground hover:text-foreground"
+          >
+            <Github className="h-4 w-4" /> More projects on GitHub
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        </Reveal>
       </div>
     </section>
   )

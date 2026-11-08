@@ -48,12 +48,7 @@ export function Navigation() {
         className="fixed inset-x-0 top-0 z-[70] h-[2px] origin-left bg-accent"
         style={{ scaleX: progress }}
       />
-      <motion.header
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.9, ease, delay: 0.2 }}
-        className="fixed inset-x-0 top-4 z-50 px-4"
-      >
+      <header className="fade-in fixed inset-x-0 top-4 z-50 px-4">
         <nav
           aria-label="Primary"
           className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border py-2 pl-5 pr-2 transition-all duration-500 ${
@@ -109,7 +104,7 @@ export function Navigation() {
             </button>
           </div>
         </nav>
-      </motion.header>
+      </header>
 
       <AnimatePresence>
         {open && (
