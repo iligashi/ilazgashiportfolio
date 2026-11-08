@@ -66,7 +66,7 @@ export const experience: Role[] = [
     period: "2023 — Present",
     summary: "Web products across commerce, hospitality, healthcare and events.",
     points: [
-      "Built and launched the Fluks Dekor store at flux-dekor.com, plus hospitality, venue and clinic sites.",
+      "Built and launched client sites including the Fluks Dekor store (flux-dekor.com) and Hotel Nobel (hotelnobel-ks.com).",
       "Built across the stack: responsive UIs, REST APIs, auth and data-backed admin tools.",
     ],
   },

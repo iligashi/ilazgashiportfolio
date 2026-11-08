@@ -16,10 +16,10 @@ export function Reveal({
 }: { children: ReactNode; delay?: number; y?: number; className?: string } & HTMLMotionProps<"div">) {
   return (
     <motion.div
-      initial={{ opacity: 0, y, filter: "blur(6px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.8, delay, ease }}
+      transition={{ duration: 0.7, delay, ease }}
       className={className}
       {...rest}
     >
