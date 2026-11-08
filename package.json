@@ -28,7 +28,7 @@
     "@vercel/analytics": "2.0.1",
     "clsx": "^2.1.1",
     "geist": "^1.9.2",
-    "lucide-react": "^0.454.0",
+    "lucide-react": "^1.69.0",
     "motion": "^12.23.0",
     "next": "15.2.8",
     "react": "^19.0.0",
