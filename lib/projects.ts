@@ -8,7 +8,11 @@ export interface Project {
   tags: string[]
   github: string
   demo?: string
-  image: string
+  image?: string
+  /** Generated cover art for projects without a public demo to screenshot */
+  illustration?: "kanban"
+  gallery?: Array<{ src: string; caption: string }>
+  highlights?: string[]
   featured?: boolean
   caseStudy?: {
     context: string
@@ -24,6 +28,52 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "real-estate-marketplace",
+    title: "Real Estate Marketplace",
+    description:
+      "A production-deployed property marketplace for buyers, sellers, renters, agents and admins, with listings, viewings, rental applications and real-time messaging.",
+    category: "Full-stack",
+    tags: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB", "Socket.IO", "Jest", "Docker"],
+    github: "https://github.com/iligashi/realestate",
+    demo: "https://realestate-orpin-eight-16.vercel.app",
+    image: "/realestate-home.png",
+    gallery: [
+      { src: "/realestate-properties.png", caption: "Property search with type, price, city and bedroom filters" },
+      { src: "/realestate-property-detail.png", caption: "Listing detail with viewing requests and owner contact" },
+      { src: "/realestate-seller-dashboard.png", caption: "Seller dashboard with per-listing views, saves and inquiries" },
+      { src: "/realestate-admin-dashboard.png", caption: "Admin moderation for users, listings and reports" },
+    ],
+    highlights: ["5 user roles", "Real-time messaging", "Jest + Supertest API tests", "CI, Docker, deployed"],
+    featured: true,
+    caseStudy: {
+      context:
+        "A property marketplace has to serve people with very different goals: buyers and renters searching, sellers and agents managing listings, and admins keeping the platform trustworthy. Each of them needs its own tools without the product splitting into separate apps.",
+      cardChallenge:
+        "Five kinds of users, one marketplace: each needs its own tools, and every listing and conversation has to stay trustworthy.",
+      cardContribution:
+        "Designed and built the whole product: the React client, the Express and Socket.IO API, the MongoDB data model, tests, CI and deployment.",
+      scope: [
+        "Five roles (buyer, seller, renter, agent, admin) with role-specific dashboards and role-based route protection on the client and the API.",
+        "Sale and rental listings with photos, filters and a multi-step listing wizard, plus admin review before a listing goes live.",
+        "Socket.IO messaging with typing indicators, read receipts, online status and live notifications.",
+        "Rental applications, viewing scheduling and open houses, a wishlist, property comparison and a mortgage calculator.",
+        "Seller analytics (views, saves, inquiries per listing) and admin moderation of users, listings and reports.",
+      ],
+      decisions: [
+        "Session tokens live in an httpOnly, Secure cookie so page JavaScript can never read them; cookie-authenticated writes require an X-Requested-With header as CSRF protection.",
+        "All input is stripped of MongoDB operators, search patterns are escaped, page sizes are capped, and login, registration and contact are rate-limited.",
+        "The same JWT and role middleware protects both the REST API and the WebSocket server, so real-time features follow the same access rules as everything else.",
+        "API behaviour is covered by Jest and Supertest against an in-memory MongoDB, run in GitHub Actions on every push.",
+        "Shipped with Docker Compose for local setup and deployed with the frontend on Vercel, the API on Render and data on MongoDB Atlas.",
+      ],
+      outcomeTitle: "A complete, deployed marketplace",
+      outcome:
+        "The platform is live with seeded demo accounts for every role, so the whole journey can be tried end to end: from searching and saving a property, to messaging the owner and booking a viewing, to an admin approving the listing.",
+      cardOutcome:
+        "Live in production with tested, documented APIs and a security model built in from the start.",
+    },
+  },
+  {
     slug: "fluks-dekor",
     title: "Fluks Dekor",
     description:
@@ -32,7 +82,7 @@ export const projects: Project[] = [
     tags: ["React", "Express", "PostgreSQL", "Tailwind CSS"],
     github: "https://github.com/iligashi/MoblieriaDardania",
     demo: "https://flux-dekor.com/",
-    image: "/dlux.png",
+    image: "/work/fluks.png",
     featured: true,
     caseStudy: {
       context:
@@ -62,7 +112,7 @@ export const projects: Project[] = [
     category: "Full-stack",
     tags: ["Next.js", "TypeScript", "MongoDB"],
     github: "https://github.com/iligashi/Task-Manager.git",
-    image: "/task-management-kanban.png",
+    illustration: "kanban",
     featured: true,
     caseStudy: {
       context:
@@ -84,36 +134,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "real-estate-marketplace",
-    title: "Real Estate Marketplace",
-    description:
-      "A property marketplace with role-based accounts, searchable listings, and real-time messaging between users.",
-    category: "Full-stack",
-    tags: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    github: "https://github.com/iligashi/realestate",
-    image: "/modern-ecommerce-dashboard.png",
-    featured: true,
-    caseStudy: {
-      context:
-        "Property seekers need to find relevant listings and contact the right people without losing the conversation in a disconnected workflow.",
-      cardChallenge: "Finding a relevant property and starting a conversation should feel like one connected journey.",
-      cardContribution: "Built searchable listings, role-based accounts, and real-time messaging.",
-      scope: [
-        "Built property listings and search for browsing available homes.",
-        "Added role-based accounts for distinct user permissions.",
-        "Implemented real-time messaging to support conversations around listings.",
-      ],
-      decisions: [
-        "Combined listing discovery and messaging in one application flow.",
-        "Used Socket.IO for real-time communication and MongoDB for application data.",
-      ],
-      outcomeTitle: "From discovery to conversation",
-      outcome:
-        "The marketplace connects property discovery with direct communication, supporting the core journey from browsing to inquiry.",
-      cardOutcome: "Connected property discovery with direct messaging around listings.",
-    },
-  },
-  {
     slug: "weather-dashboard",
     title: "Weather Dashboard",
     description: "A location-based forecast with interactive visualizations that make weather data easier to scan.",
@@ -121,7 +141,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Tailwind CSS", "API"],
     github: "https://github.com/iligashi/WeatherDashboard.git",
     demo: "https://weatherdashboard-navy.vercel.app/",
-    image: "/weather-dashboard-interface.png",
+    image: "/work/weather.png",
   },
   {
     slug: "poliklinika",
@@ -131,7 +151,7 @@ export const projects: Project[] = [
     tags: ["React", "Tailwind CSS", "React Router"],
     github: "https://github.com/iligashi/Poliklinika.git",
     demo: "https://poliklinikaa.netlify.app/",
-    image: "/poliklinika.png",
+    image: "/work/poliklinika.png",
   },
   {
     slug: "programuesi-i-veturave",
@@ -141,7 +161,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/iligashi/Programusi-i-Veturave-.git",
     demo: "https://programuesiiveturave.netlify.app/",
-    image: "/programuesi.png",
+    image: "/work/programuesi.png",
   },
   {
     slug: "nobel-venues",
@@ -151,7 +171,7 @@ export const projects: Project[] = [
     tags: ["React", "Tailwind CSS"],
     github: "https://github.com/iligashi/Nobel",
     demo: "https://nobelvenues.netlify.app/",
-    image: "/nobel.png",
+    image: "/work/nobel.png",
   },
   {
     slug: "74-lounge-bar",
@@ -162,6 +182,6 @@ export const projects: Project[] = [
     tags: ["Next.js", "Express", "SQL"],
     github: "https://github.com/iligashi/74-lounge-bar",
     demo: "https://74loungebar.netlify.app/",
-    image: "/74.png",
+    image: "/work/lounge74.png",
   },
 ]
