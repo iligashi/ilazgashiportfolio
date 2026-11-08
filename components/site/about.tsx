@@ -37,7 +37,7 @@ export function About() {
 
         <p
           ref={ref}
-          className="mt-10 max-w-5xl text-[clamp(1.75rem,3.6vw,3.25rem)] font-medium leading-[1.15] tracking-[-0.03em]"
+          className="mt-10 max-w-5xl text-[clamp(1.75rem,3.6vw,3.25rem)] leading-[1.15] font-medium tracking-[-0.03em]"
         >
           {words.map((word, i) => (
             <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]}>
@@ -49,7 +49,7 @@ export function About() {
         <div className="mt-24 grid gap-12 md:grid-cols-[0.8fr_1.2fr] md:items-center">
           <Reveal className="relative mx-auto w-full max-w-sm">
             <div className="relative aspect-square overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-accent via-accent/70 to-surface-2">
-              <div aria-hidden="true" className="absolute inset-0 bg-grid opacity-40" />
+              <div aria-hidden="true" className="bg-grid absolute inset-0 opacity-40" />
               <Image
                 src="/portrait.png"
                 alt="Portrait of Ilaz Gashi"
@@ -58,7 +58,7 @@ export function About() {
                 className="object-contain object-bottom"
               />
             </div>
-            <div className="absolute -bottom-4 -right-3 rotate-[-4deg] rounded-xl border border-line-strong bg-background px-4 py-3 font-mono text-xs shadow-2xl">
+            <div className="absolute -right-3 -bottom-4 rotate-[-4deg] rounded-xl border border-line-strong bg-background px-4 py-3 font-mono text-xs shadow-2xl">
               <span className="text-accent">●</span> Prishtina, Kosovo · CET
             </div>
           </Reveal>
@@ -66,11 +66,11 @@ export function About() {
           <div>
             <Reveal>
               <p className="text-lg leading-relaxed text-muted">
-                I&apos;m a full-stack engineer and co-founder of{" "}
-                <span className="text-foreground">Nexora Agency</span>, where I take client products from scoping to
-                production. Before and alongside that, I&apos;ve freelanced for international clients and build AI-enabled
-                automation at <span className="text-foreground">Digital School</span>. I studied Computer Science and
-                Engineering at UBT.
+                I&apos;m a full-stack engineer and co-founder of <span className="text-foreground">Nexora Agency</span>,
+                where I take client products from scoping to production. Before and alongside that, I&apos;ve freelanced
+                for international clients and build AI-enabled automation at{" "}
+                <span className="text-foreground">Digital School</span>. I studied Computer Science and Engineering at
+                UBT.
               </p>
             </Reveal>
             <ol className="mt-10 divide-y divide-line border-y border-line">

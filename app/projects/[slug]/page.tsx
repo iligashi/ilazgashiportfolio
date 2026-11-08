@@ -57,21 +57,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <Navigation />
-      <main className="px-4 pb-24 pt-36">
+      <main className="px-4 pt-36 pb-24">
         <article className="mx-auto max-w-6xl">
           <Link
             href="/#work"
-            className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground"
+            className="group inline-flex items-center gap-2 font-mono text-xs tracking-[0.16em] text-muted uppercase transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-1" /> All work
           </Link>
 
           <header className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end">
             <div>
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+              <p className="font-mono text-xs tracking-[0.18em] text-accent uppercase">
                 {project.category} · Case study
               </p>
-              <h1 className="mt-5 text-[clamp(2.75rem,7vw,6rem)] font-semibold leading-[0.95] tracking-[-0.05em]">
+              <h1 className="mt-5 text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] font-semibold tracking-[-0.05em]">
                 <SplitWords text={project.title} animateOnMount delay={0.1} />
               </h1>
             </div>
@@ -86,7 +86,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     className="group inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-ink"
                   >
                     Live demo
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </a>
                 )}
                 <a
@@ -122,21 +122,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <dl className="mt-10 grid gap-6 border-y border-line py-8 md:grid-cols-3">
             <div>
-              <dt className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">Role</dt>
+              <dt className="font-mono text-xs tracking-[0.16em] text-subtle uppercase">Role</dt>
               <dd className="mt-2">Design, full-stack build, deployment</dd>
             </div>
             <div>
-              <dt className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">Stack</dt>
+              <dt className="font-mono text-xs tracking-[0.16em] text-subtle uppercase">Stack</dt>
               <dd className="mt-2">{project.tags.join(" · ")}</dd>
             </div>
             {project.highlights ? (
               <div>
-                <dt className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">Highlights</dt>
+                <dt className="font-mono text-xs tracking-[0.16em] text-subtle uppercase">Highlights</dt>
                 <dd className="mt-2">{project.highlights.join(" · ")}</dd>
               </div>
             ) : (
               <div>
-                <dt className="font-mono text-xs uppercase tracking-[0.16em] text-subtle">Status</dt>
+                <dt className="font-mono text-xs tracking-[0.16em] text-subtle uppercase">Status</dt>
                 <dd className="mt-2">{project.demo ? "Live" : "Source available"}</dd>
               </div>
             )}
@@ -146,7 +146,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {sections.map((s) => (
               <section key={s.n} className="grid gap-6 md:grid-cols-[0.6fr_1.4fr]">
                 <Reveal>
-                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                  <p className="font-mono text-xs tracking-[0.18em] text-accent uppercase">
                     {s.n} / {s.label}
                   </p>
                   <h2 className="mt-3 text-3xl font-semibold tracking-tight">{s.title}</h2>
@@ -174,7 +174,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.gallery && project.gallery.length > 0 && (
             <section className="mt-24">
               <Reveal>
-                <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">04 / Screens</p>
+                <p className="font-mono text-xs tracking-[0.18em] text-accent uppercase">04 / Screens</p>
                 <h2 className="mt-3 text-3xl font-semibold tracking-tight">Inside the product</h2>
               </Reveal>
               <div className="mt-10 grid gap-8 md:grid-cols-2">
@@ -200,7 +200,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <Reveal className="mt-24">
             <section className="relative overflow-hidden rounded-3xl border border-accent/30 bg-accent-soft p-8 md:p-12">
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent">Outcome</p>
+              <p className="font-mono text-xs tracking-[0.18em] text-accent uppercase">Outcome</p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{cs.outcomeTitle}</h2>
               <p className="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{cs.outcome}</p>
             </section>
@@ -212,7 +212,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               className="group mt-24 flex items-end justify-between gap-6 border-t border-line pt-10"
             >
               <div>
-                <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">Next case study</p>
+                <p className="font-mono text-xs tracking-[0.18em] text-muted uppercase">Next case study</p>
                 <p className="mt-3 text-[clamp(2rem,5vw,4rem)] font-semibold tracking-[-0.04em] transition-colors group-hover:text-accent">
                   {next.title}
                 </p>

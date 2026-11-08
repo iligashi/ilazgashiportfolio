@@ -60,11 +60,13 @@ function WorkCard({ project, index }: { project: Project; index: number }) {
         }}
         className="spotlight group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-colors duration-500 hover:border-line-strong"
       >
-        <div className={`relative overflow-hidden border-b border-line ${large ? "aspect-[16/11] md:aspect-auto md:flex-1" : wide ? "aspect-[16/10] md:aspect-[2/1]" : "aspect-[16/10]"}`}>
+        <div
+          className={`relative overflow-hidden border-b border-line ${large ? "aspect-[16/11] md:aspect-auto md:flex-1" : wide ? "aspect-[16/10] md:aspect-[2/1]" : "aspect-[16/10]"}`}
+        >
           <Cover project={project} large={large} />
         </div>
         <div className="flex flex-col gap-3 p-5 md:p-6">
-          <div className="flex items-center justify-between gap-4 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+          <div className="flex items-center justify-between gap-4 font-mono text-[11px] tracking-[0.14em] text-muted uppercase">
             <span>{project.category}</span>
             {project.demo && (
               <span className="flex items-center gap-1.5 text-accent">
@@ -118,9 +120,9 @@ export function WorkGrid() {
           <SectionLabel index="02">More work</SectionLabel>
         </Reveal>
         <div className="mt-8 flex flex-wrap items-end justify-between gap-6">
-          <h2 className="max-w-3xl text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1] tracking-[-0.04em]">
+          <h2 className="max-w-3xl text-[clamp(2.25rem,5vw,4rem)] leading-[1] font-semibold tracking-[-0.04em]">
             <SplitWords text="More products," />{" "}
-            <span className="font-serif font-normal italic text-muted">
+            <span className="font-serif font-normal text-muted italic">
               <SplitWords text="built and shipped." delay={0.2} />
             </span>
           </h2>
@@ -143,7 +145,7 @@ export function WorkGrid() {
             className="group inline-flex items-center gap-2 rounded-full border border-line-strong px-5 py-2.5 text-sm text-muted transition-colors hover:border-foreground hover:text-foreground"
           >
             <Github className="h-4 w-4" /> More projects on GitHub
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>
       </div>

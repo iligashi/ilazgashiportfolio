@@ -40,7 +40,11 @@ export function CopyEmail({ className = "" }: { className?: string }) {
         <motion.span animate={{ scale: copied ? 0 : 1, opacity: copied ? 0 : 1 }} className="absolute">
           <Copy className="h-4 w-4" />
         </motion.span>
-        <motion.span initial={false} animate={{ scale: copied ? 1 : 0, opacity: copied ? 1 : 0 }} className="absolute text-accent">
+        <motion.span
+          initial={false}
+          animate={{ scale: copied ? 1 : 0, opacity: copied ? 1 : 0 }}
+          className="absolute text-accent"
+        >
           <Check className="h-4 w-4" />
         </motion.span>
       </span>
@@ -69,7 +73,7 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden pt-28 md:pt-32">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-grid mask-radial opacity-60" />
+      <div aria-hidden="true" className="bg-grid mask-radial pointer-events-none absolute inset-0 opacity-60" />
       <motion.div
         aria-hidden="true"
         className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-accent/20 blur-[140px]"
@@ -79,7 +83,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-6xl px-4">
         <div
-          className="fade-up mb-6 inline-flex items-center gap-2.5 rounded-full border border-line-strong bg-surface/60 py-1.5 pl-2 pr-4 text-xs text-muted backdrop-blur"
+          className="fade-up mb-6 inline-flex items-center gap-2.5 rounded-full border border-line-strong bg-surface/60 py-1.5 pr-4 pl-2 text-xs text-muted backdrop-blur"
           style={{ animationDelay: "0.1s" }}
         >
           <span className="relative flex h-2 w-2">
@@ -89,11 +93,11 @@ export function Hero() {
           Open to full-stack roles · remote or Prishtina
         </div>
 
-        <h1 className="text-[clamp(2.75rem,7vw,6rem)] font-semibold leading-[0.95] tracking-[-0.05em]">
+        <h1 className="text-[clamp(2.75rem,7vw,6rem)] leading-[0.95] font-semibold tracking-[-0.05em]">
           <span className="rise">Full-stack engineer</span>
           <br />
           <span
-            className="rise font-serif text-[1.08em] font-normal italic tracking-[-0.03em] text-accent"
+            className="rise font-serif text-[1.08em] font-normal tracking-[-0.03em] text-accent italic"
             style={{ animationDelay: "0.12s" }}
           >
             who ships the whole product.
@@ -105,9 +109,9 @@ export function Hero() {
             className="fade-up max-w-xl text-lg leading-relaxed text-muted md:text-xl"
             style={{ animationDelay: "0.25s" }}
           >
-            I&apos;m <span className="text-foreground">Ilaz Gashi</span>. I build complete web products: React and Next.js
-            interfaces, Node APIs, PostgreSQL and MongoDB data, real-time features, and the tests and CI that keep them
-            shipping.
+            I&apos;m <span className="text-foreground">Ilaz Gashi</span>. I build complete web products: React and
+            Next.js interfaces, Node APIs, PostgreSQL and MongoDB data, real-time features, and the tests and CI that
+            keep them shipping.
           </p>
 
           <div className="fade-up flex flex-wrap items-center gap-3 md:justify-end" style={{ animationDelay: "0.35s" }}>
@@ -131,7 +135,7 @@ export function Hero() {
             <motion.div
               aria-hidden="true"
               style={{ opacity: glow }}
-              className="absolute -inset-x-10 -bottom-10 top-10 -z-10 rounded-[40px] bg-accent/25 blur-[90px]"
+              className="absolute -inset-x-10 top-10 -bottom-10 -z-10 rounded-[40px] bg-accent/25 blur-[90px]"
             />
             <a href="#work" aria-label="Jump to the Real Estate Marketplace case study">
               <BrowserFrame url="realestate-orpin-eight-16.vercel.app">
@@ -169,7 +173,7 @@ export function Hero() {
             ["Focus", "TypeScript · Node · SQL"],
           ].map(([k, v], i) => (
             <div key={i}>
-              <dt className="uppercase tracking-[0.18em] text-subtle">{k}</dt>
+              <dt className="tracking-[0.18em] text-subtle uppercase">{k}</dt>
               <dd className="mt-1.5 text-foreground">{v}</dd>
             </div>
           ))}
