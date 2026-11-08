@@ -76,7 +76,15 @@ export function SplitWords({
 }
 
 /** Pulls its child toward the cursor while hovered. */
-export function Magnetic({ children, strength = 0.3, className }: { children: ReactNode; strength?: number; className?: string }) {
+export function Magnetic({
+  children,
+  strength = 0.3,
+  className,
+}: {
+  children: ReactNode
+  strength?: number
+  className?: string
+}) {
   const ref = useRef<HTMLDivElement>(null)
   const x = useSpring(useMotionValue(0), { stiffness: 200, damping: 15, mass: 0.3 })
   const y = useSpring(useMotionValue(0), { stiffness: 200, damping: 15, mass: 0.3 })
@@ -113,7 +121,7 @@ export function spotlightHandler(e: MouseEvent<HTMLElement>) {
 
 export function SectionLabel({ index, children }: { index: string; children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted">
+    <div className="flex items-center gap-3 font-mono text-xs tracking-[0.2em] text-muted uppercase">
       <span className="text-accent">{index}</span>
       <span className="h-px w-8 bg-line-strong" />
       <span>{children}</span>

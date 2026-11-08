@@ -13,8 +13,11 @@ const links = [
 
 export function Contact() {
   return (
-    <section id="contact" className="relative overflow-hidden px-4 pb-10 pt-32 md:pt-44">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[600px] bg-grid mask-radial opacity-50" />
+    <section id="contact" className="relative overflow-hidden px-4 pt-32 pb-10 md:pt-44">
+      <div
+        aria-hidden="true"
+        className="bg-grid mask-radial pointer-events-none absolute inset-x-0 bottom-0 h-[600px] opacity-50"
+      />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -bottom-60 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-accent/15 blur-[140px]"
@@ -24,10 +27,10 @@ export function Contact() {
           <SectionLabel index="06">Contact</SectionLabel>
         </Reveal>
 
-        <h2 className="mt-10 text-[clamp(3rem,11vw,10rem)] font-semibold leading-[0.9] tracking-[-0.06em]">
+        <h2 className="mt-10 text-[clamp(3rem,11vw,10rem)] leading-[0.9] font-semibold tracking-[-0.06em]">
           <SplitWords text="Let's build" />
           <br />
-          <span className="font-serif font-normal italic text-accent">
+          <span className="font-serif font-normal text-accent italic">
             <SplitWords text="something real." delay={0.15} />
           </span>
         </h2>
@@ -45,7 +48,7 @@ export function Contact() {
                   className="group inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-semibold text-accent-ink transition-shadow hover:shadow-[0_0_50px_-6px_var(--accent)]"
                 >
                   Start a conversation
-                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
               </Magnetic>
               <CopyEmail />

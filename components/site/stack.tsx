@@ -16,9 +16,9 @@ export function Stack() {
           <SectionLabel index="05">Stack</SectionLabel>
         </Reveal>
         <div className="mt-8 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
-          <h2 className="text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1] tracking-[-0.04em]">
+          <h2 className="text-[clamp(2.25rem,5vw,4rem)] leading-[1] font-semibold tracking-[-0.04em]">
             <SplitWords text="What I bring" />{" "}
-            <span className="font-serif font-normal italic text-accent">
+            <span className="font-serif font-normal text-accent italic">
               <SplitWords text="to a team." delay={0.15} />
             </span>
           </h2>
@@ -72,7 +72,7 @@ export function Stack() {
                           <div>
                             <p className="leading-relaxed text-muted">{cap.description}</p>
                             <p className="mt-4 flex gap-3 text-sm">
-                              <span className="font-mono text-xs uppercase tracking-wider text-accent">Proof</span>
+                              <span className="font-mono text-xs tracking-wider text-accent uppercase">Proof</span>
                               <span className="text-foreground/90">{cap.proof}</span>
                             </p>
                           </div>

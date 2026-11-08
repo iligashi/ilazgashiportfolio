@@ -51,8 +51,10 @@ export function Navigation() {
       <header className="fade-in fixed inset-x-0 top-4 z-50 px-4">
         <nav
           aria-label="Primary"
-          className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border py-2 pl-5 pr-2 transition-all duration-500 ${
-            scrolled ? "border-line-strong bg-background/70 shadow-2xl shadow-black/40 backdrop-blur-xl" : "border-transparent"
+          className={`mx-auto flex max-w-6xl items-center justify-between rounded-full border py-2 pr-2 pl-5 transition-all duration-500 ${
+            scrolled
+              ? "border-line-strong bg-background/70 shadow-2xl shadow-black/40 backdrop-blur-xl"
+              : "border-transparent"
           }`}
         >
           <Link href="/" className="group flex items-center gap-2.5" aria-label={`${profile.name}, home`}>
@@ -90,7 +92,7 @@ export function Navigation() {
               className="group hidden items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-ink sm:inline-flex"
             >
               Hire me
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <button
               type="button"
@@ -114,7 +116,7 @@ export function Navigation() {
             animate={{ clipPath: "circle(150% at calc(100% - 44px) 44px)" }}
             exit={{ clipPath: "circle(0% at calc(100% - 44px) 44px)" }}
             transition={{ duration: 0.7, ease }}
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-surface px-6 pb-10 pt-28 md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-surface px-6 pt-28 pb-10 md:hidden"
           >
             <ul className="space-y-2">
               {navItems.map((item, i) => (

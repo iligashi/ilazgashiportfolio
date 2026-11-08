@@ -122,10 +122,10 @@ export function Flagship() {
         </Reveal>
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.3fr_1fr] lg:items-end">
-          <h2 className="text-[clamp(2.5rem,6.5vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.045em]">
+          <h2 className="text-[clamp(2.5rem,6.5vw,5.5rem)] leading-[0.95] font-semibold tracking-[-0.045em]">
             <SplitWords text="Real Estate" />
             <br />
-            <span className="font-serif font-normal italic text-accent">
+            <span className="font-serif font-normal text-accent italic">
               <SplitWords text="Marketplace" delay={0.15} />
             </span>
           </h2>
@@ -143,7 +143,7 @@ export function Flagship() {
                 className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-colors hover:bg-accent hover:text-accent-ink"
               >
                 Open live demo
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
                 href={project.github}
@@ -174,7 +174,7 @@ export function Flagship() {
               <dd className="text-5xl font-semibold tracking-tight md:text-6xl">
                 <Counter to={s.value} />
               </dd>
-              <dt className="mt-2 font-mono text-xs uppercase tracking-[0.14em] text-muted">{s.label}</dt>
+              <dt className="mt-2 font-mono text-xs tracking-[0.14em] text-muted uppercase">{s.label}</dt>
             </Reveal>
           ))}
         </dl>
@@ -195,18 +195,21 @@ export function Flagship() {
                   transition={{ duration: 0.5 }}
                   className="max-lg:!opacity-100"
                 >
-                  <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                  <p className="flex items-center gap-3 font-mono text-xs tracking-[0.18em] text-accent uppercase">
                     <span>0{i + 1}</span>
                     <span className="h-px w-6 bg-accent/50" />
                     {chapter.kicker}
                   </p>
-                  <h3 className="mt-5 text-3xl font-semibold leading-tight tracking-[-0.03em] md:text-4xl">
+                  <h3 className="mt-5 text-3xl leading-tight font-semibold tracking-[-0.03em] md:text-4xl">
                     {chapter.title}
                   </h3>
                   <p className="mt-5 leading-relaxed text-muted">{chapter.body}</p>
                   <ul className="mt-6 flex flex-wrap gap-2">
                     {chapter.points.map((p) => (
-                      <li key={p} className="rounded-full border border-line-strong px-3 py-1 font-mono text-[11px] text-muted">
+                      <li
+                        key={p}
+                        className="rounded-full border border-line-strong px-3 py-1 font-mono text-[11px] text-muted"
+                      >
                         {p}
                       </li>
                     ))}
@@ -239,7 +242,10 @@ export function Flagship() {
                   <motion.span
                     key={c.id}
                     className="h-1 rounded-full bg-line-strong"
-                    animate={{ width: active === i ? 40 : 12, backgroundColor: active === i ? "var(--accent)" : "var(--line-strong)" }}
+                    animate={{
+                      width: active === i ? 40 : 12,
+                      backgroundColor: active === i ? "var(--accent)" : "var(--line-strong)",
+                    }}
                     transition={{ duration: 0.4, ease }}
                   />
                 ))}

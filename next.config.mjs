@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
+  poweredByHeader: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
   },
 }
 

@@ -16,21 +16,21 @@ export function Experience() {
         <Reveal>
           <SectionLabel index="04">Experience</SectionLabel>
         </Reveal>
-        <h2 className="mt-8 text-[clamp(2.25rem,5vw,4rem)] font-semibold leading-[1] tracking-[-0.04em]">
+        <h2 className="mt-8 text-[clamp(2.25rem,5vw,4rem)] leading-[1] font-semibold tracking-[-0.04em]">
           <SplitWords text="Where I've" />{" "}
-          <span className="font-serif font-normal italic text-accent">
+          <span className="font-serif font-normal text-accent italic">
             <SplitWords text="been building." delay={0.15} />
           </span>
         </h2>
 
         <ol ref={ref} className="relative mt-16 md:ml-[12rem]">
-          <span aria-hidden="true" className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px bg-line" />
+          <span aria-hidden="true" className="absolute top-2 left-0 h-[calc(100%-1rem)] w-px bg-line" />
           <motion.span
             aria-hidden="true"
             style={{ scaleY }}
-            className="absolute left-0 top-2 h-[calc(100%-1rem)] w-px origin-top bg-accent"
+            className="absolute top-2 left-0 h-[calc(100%-1rem)] w-px origin-top bg-accent"
           />
-          {experience.map((role, i) => (
+          {experience.map((role) => (
             <li key={role.title} className="relative pb-16 pl-8 last:pb-0 md:pl-12">
               <motion.span
                 aria-hidden="true"
@@ -38,10 +38,10 @@ export function Experience() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true, margin: "-30% 0px" }}
                 transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                className="absolute -left-[5px] top-2 h-[11px] w-[11px] rounded-full border-2 border-background bg-accent"
+                className="absolute top-2 -left-[5px] h-[11px] w-[11px] rounded-full border-2 border-background bg-accent"
               />
               <Reveal>
-                <p className="whitespace-nowrap font-mono text-xs uppercase tracking-[0.1em] text-muted md:absolute md:-left-[12rem] md:top-1.5 md:w-40 md:text-right">
+                <p className="font-mono text-xs tracking-[0.1em] whitespace-nowrap text-muted uppercase md:absolute md:top-1.5 md:-left-[12rem] md:w-40 md:text-right">
                   {role.period}
                 </p>
                 <h3 className="mt-2 text-2xl font-semibold tracking-tight md:mt-0">{role.title}</h3>

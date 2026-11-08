@@ -40,7 +40,10 @@ export const projects: Project[] = [
     gallery: [
       { src: "/realestate-properties.png", caption: "Property search with type, price, city and bedroom filters" },
       { src: "/realestate-property-detail.png", caption: "Listing detail with viewing requests and owner contact" },
-      { src: "/realestate-seller-dashboard.png", caption: "Seller dashboard with per-listing views, saves and inquiries" },
+      {
+        src: "/realestate-seller-dashboard.png",
+        caption: "Seller dashboard with per-listing views, saves and inquiries",
+      },
       { src: "/realestate-admin-dashboard.png", caption: "Admin moderation for users, listings and reports" },
     ],
     highlights: ["5 user roles", "Real-time messaging", "Jest + Supertest API tests", "CI, Docker, deployed"],
@@ -69,8 +72,7 @@ export const projects: Project[] = [
       outcomeTitle: "A complete, deployed marketplace",
       outcome:
         "The platform is live with seeded demo accounts for every role, so the whole journey can be tried end to end: from searching and saving a property, to messaging the owner and booking a viewing, to an admin approving the listing.",
-      cardOutcome:
-        "Live in production with tested, documented APIs and a security model built in from the start.",
+      cardOutcome: "Live in production with tested, documented APIs and a security model built in from the start.",
     },
   },
   {

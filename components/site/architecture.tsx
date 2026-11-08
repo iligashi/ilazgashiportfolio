@@ -21,7 +21,7 @@ export function ArchitectureDiagram() {
 
   return (
     <div className="relative flex h-full w-full items-center justify-center bg-surface p-4">
-      <div aria-hidden="true" className="absolute inset-0 bg-grid opacity-40 mask-radial" />
+      <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 opacity-40" />
       <svg
         viewBox="0 0 866 380"
         className="relative h-auto w-full"
